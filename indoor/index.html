@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>OSM Buildings indoor</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<style type="text/css">
+html, body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+#map {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.logo {
+	position: absolute;
+	left: 10px;
+	bottom: 10px;
+	width: 100px;
+	height: 50px;
+	border: 0;
+}
+
+img, canvas { image-rendering: optimizeSpeed; }
+</style>
+<script src="xyz.js"></script>
+<script src="../js/piwik.js"></script>
+</head>
+
+<body>
+<canvas id="map"></canvas>
+<a href="http://osmbuildings.org/"><img src="OSMB.png" class="logo"></a>
+<script>
+xyz.init(document.querySelector('#map'));
+xyz.load('indoor.svg');
+xyz.translate(-200, -200, 100);
+xyz.rotate(45, 0, 0);
+xyz.render();
+</script>
+</body>
+</html>
