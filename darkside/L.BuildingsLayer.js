@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2012 OSM Buildings, Jan Marsch
+ * Copyright (C) 2013 OSM Buildings, Jan Marsch
  * A leightweight JavaScript library for visualizing 3D building geometry on interactive maps.
  * @osmbuildings, http://osmbuildings.org
  */
@@ -163,7 +163,7 @@ var Color = (function () {
 //****** file: constants.js ******
 
     // constants, shared to all instances
-    var VERSION = '0.1.7a',
+    var VERSION = '0.1.8a',
         ATTRIBUTION = '&copy; <a href="http://osmbuildings.org">OSM Buildings</a>',
 
         PI = Math.PI,
@@ -176,9 +176,7 @@ var Color = (function () {
 
         LAT = 'latitude', LON = 'longitude',
 
-        // TODO: this is for non min height supporting backends
-        //HEIGHT = 0, MIN_HEIGHT = 1, FOOTPRINT = 2, COLOR = 3, CENTER = 4, IS_NEW = 5, RENDER_COLOR = 6
-        HEIGHT = 0, FOOTPRINT = 1, COLOR = 2, CENTER = 3, IS_NEW = 4, RENDER_COLOR = 5, MIN_HEIGHT = 6
+        HEIGHT = 0, MIN_HEIGHT = 1, FOOTPRINT = 2, COLOR = 3, CENTER = 4, IS_NEW = 5, RENDER_COLOR = 6
     ;
 
 
@@ -871,12 +869,6 @@ var Color = (function () {
         }
 
         function drawShadows() {
-            if (shadowLength === -1) {
-                context.fillStyle = shadowColorAlpha;
-                context.fillRect(0, 0, width, height);
-                return;
-            }
-
             if (shadowBuffer) {
                 context.drawImage(shadowBuffer, shadowOriginX - originX, shadowOriginY - originY);
                 return;
@@ -1105,7 +1097,7 @@ var Color = (function () {
                 return;
             }
 
-            if (shadows) {
+            if (shadows && shadowLength > -1) {
                 drawShadows();
             }
 
@@ -1202,6 +1194,11 @@ var Color = (function () {
                 context.fillStyle   = item[RENDER_COLOR][2] || roofColorAlpha;
                 context.strokeStyle = item[RENDER_COLOR][1] || altColorAlpha;
                 drawShape(roof, true);
+            }
+
+            if (shadows && shadowLength === -1) {
+                context.fillStyle = shadowColorAlpha;
+                context.fillRect(0, 0, width, height);
             }
         }
 
