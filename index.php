@@ -20,18 +20,18 @@ new L.TileLayer(
 
 new L.BuildingsLayer({ url: 'server/?w={w}&n={n}&e={e}&s={s}&z={z}' }).addTo(map);
 
-function mapPosition(lat, lon, z) {
-    map.setView(new L.LatLng(lat, lon), z)
+function mapPosition(lat, lon) {
+    map.setView(new L.LatLng(lat, lon), 17)
 }
 </script>
 
 <ul class="intro">
-    <li><img src="<?php echo ROOT?>/assets/images/screenshots/Berlin - Alex.jpg" onclick="mapPosition(52.52111,13.40988, 16)">Berlin<br>Alexanderplatz</li>
-    <li><img src="<?php echo ROOT?>/assets/images/screenshots/Berlin - Zoo.jpg" onclick="mapPosition(52.50440,13.33522, 17)">Berlin<br>Zoo</li>
-    <li><img src="<?php echo ROOT?>/assets/images/screenshots/Berlin - Potsdamer Platz.jpg" onclick="mapPosition(52.50983,13.37455, 17)">Berlin<br>Potsdamer Platz</li>
-    <li><img src="<?php echo ROOT?>/assets/images/screenshots/Frankfurt.jpg" onclick="mapPosition(50.11356, 8.66289, 15)">Frankfurt<br>&nbsp;</li>
-    <li><img src="<?php echo ROOT?>/assets/images/screenshots/Rostock.jpg" onclick="mapPosition(54.09047, 12.13820, 17)">Rostock<br>&nbsp;</li>
-    <li><img src="<?php echo ROOT?>/assets/images/screenshots/Bremen.jpg" onclick="mapPosition(53.07643, 8.80723, 17)">Bremen<br>&nbsp;</li>
+    <li><img src="<?php echo ROOT?>/assets/images/screenshots/Berlin - Alex.jpg" onclick="mapPosition(52.52111,13.40988)">Berlin<br>Alexanderplatz</li>
+    <li><img src="<?php echo ROOT?>/assets/images/screenshots/Berlin - Zoo.jpg" onclick="mapPosition(52.50440,13.33522)">Berlin<br>Zoo</li>
+    <li><img src="<?php echo ROOT?>/assets/images/screenshots/Berlin - Potsdamer Platz.jpg" onclick="mapPosition(52.50983,13.37455)">Berlin<br>Potsdamer Platz</li>
+    <li><img src="<?php echo ROOT?>/assets/images/screenshots/Frankfurt.jpg" onclick="mapPosition(50.11356, 8.66289)">Frankfurt<br>&nbsp;</li>
+    <li><img src="<?php echo ROOT?>/assets/images/screenshots/Rostock.jpg" onclick="mapPosition(54.09047, 12.13820)">Rostock<br>&nbsp;</li>
+    <li><img src="<?php echo ROOT?>/assets/images/screenshots/Bremen.jpg" onclick="mapPosition(53.07643, 8.80723)">Bremen<br>&nbsp;</li>
 </ul>
 
 <p>Click one of the locations above for some taller buildings. Pan the map to see the perspective effect.</p>

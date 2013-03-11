@@ -11,7 +11,6 @@ pageHeader('Examples');
     <li><a href="examples/DB-data-load.html">DB data load</a> - The very first use case using a MySQL backend</li>
     <li><a href="examples/Fullscreen.html">Fullscreen</a> - Same as above but in.. fullscreen</li>
     <li><a href="examples/Data-visualization.html">Data visualization</a> - No buildings at all: showing US census data on a map</li>
-    <li><a href="examples/Data-density.html">Data density</a> - Visualizing buildings data coverage in.. OSM Buildings!</li>
     <li><a href="examples/Draw.html">Draw</a> - Draw polygons on the map and get them extruded</li>
     <li><a href="examples/Styles.html">Styles</a> - Set colors for walls, roofs and stroke roofs</li>
     <li><a href="examples/GeoJSON-load.html">GeoJSON load</a> - Show GeoJSON data from CartoDB</li>
