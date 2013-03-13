@@ -6,10 +6,10 @@ RewriteRule ^.*$ http://osmbuildings\.org/ [R=301,L]
 RewriteCond %{HTTP_HOST} ^(.*\.)?osmbuildings\.(com|net|de|eu)$ [NC]
 RewriteRule ^(.*)$ http://osmbuildings\.org/$1 [R=301,L]
 
-RewriteRule ^examples/?$ http://osmbuildings.org/examples.php [R=301,L]
+RewriteRule ^documentation.php$ http://osmbuildings.org/documentation/ [R=301,L]
 
 RewriteRule ^touch.php$ http://osmbuildings.org/examples/Fullscreen.html [R=301,L]
 
-RewriteRule ^documentation.php$ http://osmbuildings.org/documentation/index.html [R=301,L]
-
 RewriteRule ^examples/census.*$ http://osmbuildings.org/examples/Data-visualization.html [R=301,L]
+
+RewriteRule ^examples.php$ http://osmbuildings.org/examples/ [R=301,L]

@@ -7,73 +7,12 @@ define("LEAFLET_VERSION_LATEST", "0.5.1");
 
 define("INCLUDES", ROOT."/includes");
 
-define("META_NAME", "OSM Buildings");
-define("META_TITLE", "OSM Buildings - A JavaScript library for visualizing 3D building geometry on interactive maps");
+define("SITE_TITLE", "OSM Buildings");
+define("SITE_DESCRIPTION", SITE_TITLE." - A JavaScript library for visualizing 3D building geometry on interactive maps");
+define("SITE_URL", "http://osmbuildings.org/");
+define("SITE_SHORT_URL", "http://bld.gs/");
 
-$metaKeywords = "
-OSMBuilding
-OSMBuildings
-OSM-Building
-OSM-Buildings
-OSM Building
-OSM Buildings
-3D Buildings
-3D Building
-Extruded Building
-Extruded Buildings
-Elevated Building
-Elevated Buildings
-OSM-3D
-3D
-Building
-Buildings
-Leaflet
-LeafletJS
-Leaflet.js
-OpenLayers
-Jan Marsch
-Berlin
-Map
-Maps
-Anaglyph
-OSM
-OpenStreetMap
-OpenStreetMaps
-JS
-JavaScript
-Library
-WebGL
-Example
-Examples
-Indoor
-fly.js
-FlyJS
-Layer
-BuildingLayer
-BuildingsLayer
-Footprint
-Coordinates
-Geometry
-JSON
-GeoJSON
-Height
-Extract
-node
-nodeJS
-node.js
-PostGIS
-Geo
-GPS
-GIS
-Visualization
-Latitude
-Longitude
-Mercator
-Projection
-Panning
-Zooming
-API";
-
-define("META_KEYWORDS", implode(", ", array_unique(explode("\n", trim($metaKeywords)))));
+define("TWITTER_ACCOUNT", "osmbuildings");
+define("GITHUB_URL", "https://github.com/kekscom/osmbuildings/");
 
 ?>
