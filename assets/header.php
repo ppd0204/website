@@ -17,16 +17,8 @@
 <body>
 <div class="layout">
     <div class="header"><div class="center">
-        <a href="<?php echo ROOT?>/"><img src="<?php echo ROOT?>/assets/images/logo.png" alt="Home" title="<?php echo $meta["title"]?>" class="logo"></a>
-
-        <ul class="navigation">
-            <li><a href="<?php echo ROOT?>/examples.php">Examples</a></li>
-            <li><a href="<?php echo ROOT?>/download.php">Download</a></li>
-            <li><a href="<?php echo ROOT?>/documentation/index.html">Documentation</a></li>
-            <li><a href="<?php echo ROOT?>/questions.php">Questions</a></li>
-            <li><a href="javascript:UserVoice.showPopupWidget();">Feedback</a></li>
-        </ul>
-
+        <a href="<?php echo ROOT?>/"><img src="<?php echo ROOT?>/assets/images/logo.png" alt="Home" title="<?php echo SITE_TITLE?>" class="logo"></a>
+        <?php require_once(ROOT."/assets/navigation.php")?>
     </div></div>
 
     <div class="content"><div class="center">
