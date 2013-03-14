@@ -17,7 +17,7 @@
 <body>
 <div class="layout">
     <div class="header"><div class="center">
-        <a href="<?php echo ROOT?>/"><img src="<?php echo ROOT?>/assets/images/logo.png" alt="Home" title="<?php echo SITE_TITLE?>" class="logo"></a>
+        <a href="<?php echo ROOT?>/"><img src="<?php echo ROOT?>/logo.png" alt="Home" title="<?php echo SITE_TITLE?>" class="logo"></a>
         <?php require_once(ROOT."/assets/navigation.php")?>
     </div></div>
 
