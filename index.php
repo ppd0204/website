@@ -1,6 +1,6 @@
 <?php
-$root = '.';
-require_once($root.'/base.php');
+$root = ".";
+require_once("$root/base.php");
 
 pageHeader();
 ?>
@@ -42,6 +42,6 @@ function mapPosition(lat, lon) {
 from Berlin and about 50k footprints from Frankfurt, Germany.</p>
 
 <p>OSM Buildings is using Canvas 2D operations only - <strong>this is not WebGL</strong>.<br>
-Overall size of the minified library is <?php printf('%.1Fk', OSMB_SIZE_MINIFIED)?> (<?php printf('%.1Fk', OSMB_SIZE_GZIPPED)?> gzipped).</p>
+Overall size of the minified library is <?php printf("%.1Fk", OSMB_SIZE_MINIFIED)?> (<?php printf("%.1Fk", OSMB_SIZE_GZIPPED)?> gzipped).</p>
 
 <?php pageFooter()?>

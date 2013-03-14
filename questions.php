@@ -1,8 +1,8 @@
 <?php
-$root = '.';
-require_once($root.'/base.php');
+$root = ".";
+require_once("$root/base.php");
 
-pageHeader('Questions & Answers');
+pageHeader("Questions & Answers");
 ?>
 
 <p>Most of these questions would come to my mind. But it's totally up to you, feel free to ask more.</p>

@@ -1,8 +1,8 @@
 <?php
-$root = '.';
-require_once($root.'/base.php');
+$root = ".";
+require_once("$root/base.php");
 
-pageHeader('Download OSM Buildings');
+pageHeader("Download");
 ?>
 
 <p>I assume, <a href="http://leafletjs.com">Leaflet map engine</a> should be already integrated in your html page.<br>
