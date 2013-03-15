@@ -5,9 +5,12 @@ require_once("$root/base.php");
 pageHeader("Examples - Draw");
 ?>
 
-<link rel="stylesheet" href="../assets/default.css">
+<link rel="stylesheet" href="<?php echo ROOT?>/assets/default.css">
 <link rel="stylesheet" href="js/leaflet.draw/leaflet.draw.css">
-<script src="../js/example.js"></script>
+<link rel="stylesheet" href="<?php echo ROOT?>/js/highlight/github.css">
+<script src="<?php echo ROOT?>/js/Fly.js"></script>
+<script src="<?php echo ROOT?>/js/highlight/highlight.pack.js"></script>
+<script src="<?php echo ROOT?>/js/Example.js"></script>
 <script src="js/leaflet.draw/leaflet.draw.js"></script>
 
 <div id="map"></div>
@@ -82,7 +85,6 @@ map.on('draw:poly-created', function (e) {
 </script>
 
 <script>
-// keeps drawing, but hides ui
 map.removeControl(drawControl);
 
 function setColor(el) {
@@ -95,6 +97,11 @@ function setColor(el) {
 function setHeight(el) {
     height = parseInt(el.value) || 50;
 }
+
+Fly.on('ready', function () {
+    var src = Fly.wrap('#src');
+    new Example('#code', src.innerText);
+});
 </script>
 
 <?php pageFooter()?>

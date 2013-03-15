@@ -5,8 +5,11 @@ require_once("$root/base.php");
 pageHeader("Examples - Data visualization");
 ?>
 
-<link rel="stylesheet" href="../assets/default.css">
-<script src="../js/example.js"></script>
+<link rel="stylesheet" href="<?php echo ROOT?>/assets/default.css">
+<link rel="stylesheet" href="<?php echo ROOT?>/js/highlight/github.css">
+<script src="<?php echo ROOT?>/js/Fly.js"></script>
+<script src="<?php echo ROOT?>/js/highlight/highlight.pack.js"></script>
+<script src="<?php echo ROOT?>/js/Example.js"></script>
 <script src="js/censusData.js"></script>
 
 <div id="map"></div>
@@ -43,6 +46,13 @@ for (var i = 0, il = censusData.features.length; i < il; i++) {
 }
 
 new L.BuildingsLayer().addTo(map).geoJSON(censusData);
+</script>
+
+<script>
+Fly.on('ready', function () {
+    var src = Fly.wrap('#src');
+    new Example('#code', src.innerText);
+});
 </script>
 
 <?php pageFooter()?>

@@ -5,10 +5,13 @@ require_once("$root/base.php");
 pageHeader("Examples - OpenLayers integration");
 ?>
 
-<link rel="stylesheet" href="../assets/default.css">
-<script src="../js/example.js"></script>
+<link rel="stylesheet" href="<?php echo ROOT?>/assets/default.css">
+<link rel="stylesheet" href="<?php echo ROOT?>/js/highlight/github.css">
+<script src="<?php echo ROOT?>/js/Fly.js"></script>
+<script src="<?php echo ROOT?>/js/highlight/highlight.pack.js"></script>
+<script src="<?php echo ROOT?>/js/Example.js"></script>
 <script src="js/OpenLayers-2.12/OpenLayers.js"></script>
-<script src="../js/OpenLayers.Layer.Buildings.js"></script>
+<script src="<?php echo ROOT?>/js/OpenLayers.Layer.Buildings.js"></script>
 
 <div id="map"></div>
 
@@ -33,6 +36,13 @@ map.setCenter(
 );
 var osmb = new OpenLayers.Layer.Buildings({ url: '../server/?w={w}&n={n}&e={e}&s={s}&z={z}' });
 map.addLayer(osmb);
+</script>
+
+<script>
+Fly.on('ready', function () {
+    var src = Fly.wrap('#src');
+    new Example('#code', src.innerText);
+});
 </script>
 
 <?php pageFooter()?>

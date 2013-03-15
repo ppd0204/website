@@ -5,8 +5,11 @@ require_once("$root/base.php");
 pageHeader("Examples - Leaflet integration");
 ?>
 
-<link rel="stylesheet" href="../assets/default.css">
-<script src="../js/example.js"></script>
+<link rel="stylesheet" href="<?php echo ROOT?>/assets/default.css">
+<link rel="stylesheet" href="<?php echo ROOT?>/js/highlight/github.css">
+<script src="<?php echo ROOT?>/js/Fly.js"></script>
+<script src="<?php echo ROOT?>/js/highlight/highlight.pack.js"></script>
+<script src="<?php echo ROOT?>/js/Example.js"></script>
 
 <div id="map"></div>
 
@@ -25,6 +28,13 @@ new L.TileLayer(
 
 var osmb = new L.BuildingsLayer({ url: '../server/?w={w}&n={n}&e={e}&s={s}&z={z}' }).addTo(map);
 L.control.layers({}, { Buildings: osmb }).addTo(map);
+</script>
+
+<script>
+Fly.on('ready', function () {
+    var src = Fly.wrap('#src');
+    new Example('#code', src.innerText);
+});
 </script>
 
 <?php pageFooter()?>

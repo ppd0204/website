@@ -15,3 +15,5 @@ RewriteRule ^touch.php$ http://osmbuildings.org/examples/Fullscreen.html [R=301,
 RewriteRule ^examples/census.*$ http://osmbuildings.org/examples/Data-visualization.html [R=301,L]
 
 RewriteRule ^examples.php$ http://osmbuildings.org/examples/ [R=301,L]
+
+RewriteRule ^examples/(.*).html$ http://osmbuildings.org/examples/$1.php [R=301,L]
