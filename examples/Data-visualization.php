@@ -2,7 +2,7 @@
 $root = "..";
 require_once("$root/base.php");
 
-pageHeader("Examples - Data visualization");
+pageHeader("Examples - Data visualization", "examples");
 ?>
 
 <link rel="stylesheet" href="<?php echo ROOT?>/assets/default.css">

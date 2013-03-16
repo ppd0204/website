@@ -2,7 +2,7 @@
 $root = "..";
 require_once("$root/base.php");
 
-pageHeader("Documentation - Integration with Leaflet");
+pageHeader("Documentation - Integration with Leaflet", "docs");
 ?>
 
 <h2>1. Link Leaflet and OSM Buildings files</h2>

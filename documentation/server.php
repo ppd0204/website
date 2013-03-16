@@ -2,7 +2,7 @@
 $root = "..";
 require_once("$root/base.php");
 
-pageHeader("Documentation - Server");
+pageHeader("Documentation - Server", "docs");
 ?>
 
 <h2>Setup</h2>

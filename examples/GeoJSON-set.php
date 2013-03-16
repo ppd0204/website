@@ -2,7 +2,7 @@
 $root = "..";
 require_once("$root/base.php");
 
-pageHeader("Examples - GeoJSON set");
+pageHeader("Examples - GeoJSON set", "examples");
 ?>
 
 <link rel="stylesheet" href="<?php echo ROOT?>/assets/default.css">

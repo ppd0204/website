@@ -2,7 +2,7 @@
 $root = "..";
 require_once("$root/base.php");
 
-pageHeader("Examples - Leaflet integration");
+pageHeader("Examples - Leaflet integration", "examples");
 ?>
 
 <link rel="stylesheet" href="<?php echo ROOT?>/assets/default.css">

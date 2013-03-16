@@ -2,7 +2,7 @@
 $root = "..";
 require_once("$root/base.php");
 
-pageHeader("Examples - Styling");
+pageHeader("Examples - Styling", "examples");
 ?>
 
 <link rel="stylesheet" href="<?php echo ROOT?>/assets/default.css">

@@ -2,7 +2,7 @@
 $root = "..";
 require_once("$root/base.php");
 
-pageHeader("Documentation - Integration with OpenLayers");
+pageHeader("Documentation - Integration with OpenLayers", "docs");
 ?>
 
 <h2>1. Link OpenLayers and OSM Buildings files</h2>

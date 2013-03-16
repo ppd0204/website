@@ -16,11 +16,10 @@
 </head>
 
 <body>
-<div class="layout">
-    <div class="header"><div class="center">
-        <a href="<?php echo ROOT?>/"><img src="<?php echo ROOT?>/logo.png" alt="Home" title="<?php echo SITE_TITLE?>" class="logo"></a>
-        <?php require_once(ROOT."/assets/navigation.php")?>
-    </div></div>
+<div class="header">
+    <a href="<?php echo ROOT?>/"><img src="<?php echo ROOT?>/logo.png" alt="Home" title="<?php echo SITE_TITLE?>" class="logo"></a>
+    <?php require_once(ROOT."/assets/navigation.php")?>
+</div>
 
-    <div class="content"><div class="center">
-        <?php if($title):?><h1><?php echo $title?></h1><?php endif?>
+<div class="content">
+    <?php if($title):?><h1><?php echo $title?></h1><?php endif?>

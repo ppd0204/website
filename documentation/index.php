@@ -2,7 +2,7 @@
 $root = "..";
 require_once("$root/base.php");
 
-pageHeader("Documentation");
+pageHeader("Documentation", "docs");
 ?>
 
 <p>Most examples and documentation refer to <a href="http://leafletjs.com">Leaflet</a>,<br>

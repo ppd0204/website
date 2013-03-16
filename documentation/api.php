@@ -2,7 +2,7 @@
 $root = "..";
 require_once("$root/base.php");
 
-pageHeader("Documentation - API");
+pageHeader("Documentation - API", "docs");
 ?>
 
 <a name="constructors"><h2>Constructors</h2></a>

@@ -2,7 +2,7 @@
 $root = "..";
 require_once("$root/base.php");
 
-pageHeader("Examples");
+pageHeader("Examples", "examples");
 ?>
 
 <ul>

@@ -2,7 +2,7 @@
 $root = ".";
 require_once("$root/base.php");
 
-pageHeader("About me");
+pageHeader("About me", "about");
 ?>
 
 <p>Hi,</p>
@@ -11,20 +11,18 @@ pageHeader("About me");
 
 <p>I'm Jan Marsch, living in Berlin, Germany.</p>
 
-<p>Since 1998 I work freelance in Software development under the company label of <a href="http://keks.com">keks.com</a>.<br>
-I'd describe myself as Senior Software Engineer for web and mobile web applications.</p>
+<p>Since 1998 I work freelance in Software development and would describe myself as Senior Software Engineer for web and mobile web applications.</p>
 
-<p>My primary focus is on JavaScript, HTML5, Canvas, PHP, REST and Databases.<br>
+<p>My primary focus is on JavaScript, HTML5, Canvas, PHP, REST and Databases.
 Additional strenghts are entrepreneural thinking, affinity to mobile, maps and UX.</p>
 
 <p>I've been working in  several long term projects for
 Nokia Maps, Nokia Places for web and mobile,
-data center administration for Daimler AG,
-web development for Bayer AG,
+data center administration for Daimler AG, web development for Bayer AG,
 intranet development for Deutsche Lufthansa AG and for a subsidiary of TNT Post.</p>
 
 <p>I'm fluent in German and English.</p>
 
-<p>Get in touch: <a href="mailto:jama@keks.com">jama@keks.com</a>
+<p>Get in touch: <a href="mailto:<?php echo SITE_EMAIL?>"><?php echo SITE_EMAIL?></a>
 
-<?php pageFooter() ?>
+<?php pageFooter()?>
