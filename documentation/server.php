@@ -2,13 +2,13 @@
 $root = "..";
 require_once("$root/base.php");
 
-pageHeader("Documentation - Server", "docs");
+pageHeader("Server", "docs");
 ?>
 
 <h2>Setup</h2>
 
 <p>In case you like to run OSM Buildings with real building geometry, you need to set up a server environment with PHP and MySQL or PostGIS.<br>
-<em>Notice</em>: one of the next releases will simplify the whole process radically.</p>
+<em>Notice</em>: one of the next releases will simplify the whole process.</p>
 
 <p>As it is very popular for web hosting, I'm going with MySQL. Version 5.0.16 or better has the required <a href="http://dev.mysql.com/doc/refman/5.0/en/spatial-extensions.html">spatial extensions</a> enabled.
 For those who have trouble importing the data into MySQL or running a different server, <a href="https://twitter.com/D_Guidi">Diego Guidi</a> did a great job creating a Shapefile.</p>

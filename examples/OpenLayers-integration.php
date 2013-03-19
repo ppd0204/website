@@ -2,10 +2,10 @@
 $root = "..";
 require_once("$root/base.php");
 
-pageHeader("Examples - OpenLayers integration", "examples");
+pageHeader("OpenLayers integration", "examples");
 ?>
 
-<link rel="stylesheet" href="<?php echo ROOT?>/assets/default.css">
+<link rel="stylesheet" href="<?php echo ROOT?>/assets/example.css">
 <link rel="stylesheet" href="<?php echo ROOT?>/js/highlight/github.css">
 <script src="<?php echo ROOT?>/js/Fly.js"></script>
 <script src="<?php echo ROOT?>/js/highlight/highlight.pack.js"></script>
@@ -17,7 +17,7 @@ pageHeader("Examples - OpenLayers integration", "examples");
 
 <p>Integrating with OpenLayers layer switch. Your server needs to be running for this example.</p>
 
-<pre id="code" class="code"></pre>
+<pre><code id="code"></code></pre>
 
 <script id="src">
 var map = new OpenLayers.Map('map');
@@ -34,14 +34,14 @@ map.setCenter(
         ),
     17
 );
-var osmb = new OpenLayers.Layer.Buildings({ url: '../server/?w={w}&n={n}&e={e}&s={s}&z={z}' });
+var osmb = new OpenLayers.Layer.Buildings({ url: '<?php echo ROOT?>/server/?w={w}&n={n}&e={e}&s={s}&z={z}' });
 map.addLayer(osmb);
 </script>
 
 <script>
 Fly.on('ready', function () {
     var src = Fly.wrap('#src');
-    new Example('#code', src.innerText);
+    setCode('#code', src.innerText);
 });
 </script>
 

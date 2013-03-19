@@ -2,10 +2,10 @@
 $root = "..";
 require_once("$root/base.php");
 
-pageHeader("Examples - Leaflet integration", "examples");
+pageHeader("Leaflet integration", "examples");
 ?>
 
-<link rel="stylesheet" href="<?php echo ROOT?>/assets/default.css">
+<link rel="stylesheet" href="<?php echo ROOT?>/assets/example.css">
 <link rel="stylesheet" href="<?php echo ROOT?>/js/highlight/github.css">
 <script src="<?php echo ROOT?>/js/Fly.js"></script>
 <script src="<?php echo ROOT?>/js/highlight/highlight.pack.js"></script>
@@ -14,9 +14,9 @@ pageHeader("Examples - Leaflet integration", "examples");
 <div id="map"></div>
 
 <p>Integrating with Leaflet layer switch. Also using dynamic attribution.<br>
-    Your server needs to be running for this example.</p>
+Your server needs to be running for this example.</p>
 
-<pre id="code" class="code"></pre>
+<pre><code id="code"></code></pre>
 
 <script id="src">
 var map = new L.Map('map').setView([52.50440, 13.33522], 17);
@@ -26,14 +26,14 @@ new L.TileLayer(
     { attribution: 'Map tiles &copy; <a href="http://mapbox.com">MapBox</a>', maxZoom: 17 }
 ).addTo(map);
 
-var osmb = new L.BuildingsLayer({ url: '../server/?w={w}&n={n}&e={e}&s={s}&z={z}' }).addTo(map);
+var osmb = new L.BuildingsLayer({ url: '<?php echo ROOT?>/server/?w={w}&n={n}&e={e}&s={s}&z={z}' }).addTo(map);
 L.control.layers({}, { Buildings: osmb }).addTo(map);
 </script>
 
 <script>
 Fly.on('ready', function () {
     var src = Fly.wrap('#src');
-    new Example('#code', src.innerText);
+    setCode('#code', src.innerText);
 });
 </script>
 

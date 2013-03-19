@@ -4,7 +4,6 @@ require_once("$root/base.php");
 
 // pageHeader();
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +20,6 @@ require_once("$root/base.php");
 	<link rel="stylesheet" href="<?php echo ROOT?>/js/leaflet-<?php echo LEAFLET_VERSION_LATEST?>/leaflet.css">
 	<script src="<?php echo ROOT?>/js/leaflet-<?php echo LEAFLET_VERSION_LATEST?>/leaflet.js"></script>
 	<script src="<?php echo ROOT?>/js/L.BuildingsLayer.js"></script>
-
 </head>
 
 <body>

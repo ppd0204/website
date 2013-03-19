@@ -2,33 +2,36 @@
 $root = "..";
 require_once("$root/base.php");
 
-pageHeader("Documentation - Integration with Leaflet", "docs");
+pageHeader("Integration with Leaflet", "docs");
 ?>
+
+<link rel="stylesheet" href="<?php echo ROOT?>/js/highlight/github.css">
+<script src="<?php echo ROOT?>/js/highlight/highlight.pack.js"></script>
 
 <h2>1. Link Leaflet and OSM Buildings files</h2>
 
 <p>Your HTML head section should look like this.</p>
 
-<pre class="code">
+<pre><code>
 &lt;head&gt;
 	&lt;link rel=&quot;stylesheet&quot; href=&quot;http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.css&quot;&gt;
 	&lt;script src=&quot;http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.js&quot;&gt;&lt;/script&gt;
 	&lt;script src=&quot;dist/L.BuildingsLayer.js&quot;&gt;&lt;/script&gt;
 &lt;/head&gt;
-</pre>
+</code></pre>
 
 <h2>2. Initialize the map engine and add a map tile layer</h2>
 
 <p>Position is set to Berlin at zoom level 17<br>
 I'm using MapBox tiles here.</p>
 
-<pre class="code">
+<pre><code>
 var map = new L.Map('map').setView([52.52020, 13.37570], 17);
 new L.TileLayer(
     'http://{s}.tiles.mapbox.com/v3/osmbuildings.map-c8zdox7m/{z}/{x}/{y}.png',
     { attribution: 'Map tiles &copy; <a href="http://mapbox.com">MapBox</a>', maxZoom: 17 }
 ).addTo(map);
-</pre>
+</code></pre>
 
 <h2>3.a Add the buildings layer, database</h2>
 
@@ -38,9 +41,9 @@ Otherwise you are running into cross origin security issues. Adapt the url param
 Right now, the library's backend provides sample data for cities Berlin and Frankfurt, Germany.
 For your city of choice, you need to convert OSM data yourself.</p>
 
-<pre class="code">
-new L.BuildingsLayer({ url: '../server/?w={w}&n={n}&e={e}&s={s}&z={z}' }).addTo(map);
-</pre>
+<pre><code>
+new L.BuildingsLayer({ url: '<?php echo ROOT?>/server/?w={w}&n={n}&e={e}&s={s}&z={z}' }).addTo(map);
+</code></pre>
 
 <h2>3.b Add the buildings layer, GeoJSON</h2>
 
@@ -48,7 +51,7 @@ new L.BuildingsLayer({ url: '../server/?w={w}&n={n}&e={e}&s={s}&z={z}' }).addTo(
 Just pass a data object to the engine, it doesn't need to be real buildings.
 Ensure it's coordinates are set as lon/lat[/alt] and the properties section is set as shown below.</p>
 
-<pre class="code">
+<pre><code>
 var data = {
     "type": "FeatureCollection",
     "features": [{
@@ -71,23 +74,11 @@ var data = {
 };
 
 new L.BuildingsLayer().addTo(map).geoJSON(data);
-</pre>
+</code></pre>
 
 <script>
-var pre = document.querySelectorAll('.code');
-for (var i = 0, il = pre.length; i < il; i++) {
-    hljs.highlightBlock(pre[i]);
-    pre[i].onclick = function (e) {
-        this.className += ' large';
-        e.cancelBubble = true;
-    };
-}
-
-document.onclick = function () {
-    for (var i = 0, il = pre.length; i < il; i++) {
-        pre[i].className = pre[i].className.replace(/ large/g, '');
-    }
-};
+hljs.tabReplace = '  ';
+hljs.initHighlightingOnLoad();
 </script>
 
 <?php pageFooter()?>

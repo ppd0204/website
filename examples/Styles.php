@@ -2,10 +2,10 @@
 $root = "..";
 require_once("$root/base.php");
 
-pageHeader("Examples - Styling", "examples");
+pageHeader("Styling", "examples");
 ?>
 
-<link rel="stylesheet" href="<?php echo ROOT?>/assets/default.css">
+<link rel="stylesheet" href="<?php echo ROOT?>/assets/example.css">
 <link rel="stylesheet" href="<?php echo ROOT?>/js/highlight/github.css">
 <script src="<?php echo ROOT?>/js/Fly.js"></script>
 <script src="<?php echo ROOT?>/js/highlight/highlight.pack.js"></script>
@@ -28,7 +28,7 @@ Roof color:
 <button class="color" style="background:rgb(200,150,100);" onclick="setStyle(this, 'roof')"></button>
 </p>
 
-<pre id="code" class="code"></pre>
+<pre><code id="code"></code></pre>
 
 <script id="src">
 var map = new L.Map('map').setView([52.50440, 13.33522], 17);
@@ -38,11 +38,11 @@ new L.TileLayer(
     { attribution:'Map tiles &copy; <a href="http://mapbox.com">MapBox</a>', maxZoom:17 }
 ).addTo(map);
 
-var osmb = new L.BuildingsLayer({ url: '../server/?w={w}&n={n}&e={e}&s={s}&z={z}' }).addTo(map);
+var osmb = new L.BuildingsLayer({ url: '<?php echo ROOT?>/server/?w={w}&n={n}&e={e}&s={s}&z={z}' }).addTo(map);
 </script>
 
 <script>
-var x, src,
+var src,
     wallColor = 'rgb(200,190,180)', roofColor = null;
 
 function setStyle(el, type) {
@@ -56,13 +56,12 @@ function setStyle(el, type) {
     }
     osmb.setStyle({ wallColor:wallColor, roofColor:roofColor });
 
-    x.setCode(src.innerText + 'osmb.setStyle({ wallColor: \'' + wallColor + '\', roofColor: \'' + roofColor + ' });');
+    setCode('#code', src.innerText + 'osmb.setStyle({ wallColor: \'' + wallColor + '\', roofColor: \'' + roofColor + ' });');
 }
 
 Fly.on('ready', function () {
-    x = new Example('#code');
     src = Fly.wrap('#src');
-    setStyle();
+    setCode('#code', src.innerText);
 });
 </script>
 

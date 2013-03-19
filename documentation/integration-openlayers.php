@@ -2,25 +2,28 @@
 $root = "..";
 require_once("$root/base.php");
 
-pageHeader("Documentation - Integration with OpenLayers", "docs");
+pageHeader("Integration with OpenLayers", "docs");
 ?>
+
+<link rel="stylesheet" href="<?php echo ROOT?>/js/highlight/github.css">
+<script src="<?php echo ROOT?>/js/highlight/highlight.pack.js"></script>
 
 <h2>1. Link OpenLayers and OSM Buildings files</h2>
 
 <p>Your HTML head section should look like this.</p>
 
-<pre class="code">
+<pre><code>
 &lt;head&gt;
 	&lt;script src=&quot;http://www.openlayers.org/api/OpenLayers.js&quot;&gt;&lt;/script&gt;
 	&lt;script src=&quot;dist/Openlayers.Layer.Buildings.js&quot;&gt;&lt;/script&gt;
 &lt;/head&gt;
-</pre>
+</code></pre>
 
 <h2>2. Initialize the map engine and add a map tile layer</h2>
 
 <p>Position is set to Berlin at zoom level 17.</p>
 
-<pre class="code">
+<pre><code>
 var map = new OpenLayers.Map('map');
 map.addControl(new OpenLayers.Control.LayerSwitcher());
 
@@ -35,7 +38,7 @@ map.setCenter(
         ),
     17
 );
-</pre>
+</code></pre>
 
 <h2>3.a Add the buildings layer, database</h2>
 
@@ -45,9 +48,9 @@ Otherwise you are running into cross origin security issues. Adapt the url param
 Right now, the library's backend provides sample data for cities Berlin and Frankfurt, Germany.
 For your city of choice, you need to convert OSM data yourself.</p>
 
-<pre class="code">
-map.addLayer(new OpenLayers.Layer.Buildings({ url: '../server/?w={w}&n={n}&e={e}&s={s}&z={z}' }));
-</pre>
+<pre><code>
+map.addLayer(new OpenLayers.Layer.Buildings({ url: '<?php echo ROOT?>/server/?w={w}&n={n}&e={e}&s={s}&z={z}' }));
+</code></pre>
 
 <h2>3.b Add the buildings layer, GeoJSON</h2>
 
@@ -55,7 +58,7 @@ map.addLayer(new OpenLayers.Layer.Buildings({ url: '../server/?w={w}&n={n}&e={e}
 Just pass a data object to the engine, it doesn't need to be real buildings.
 Ensure it's coordinates are set as lon/lat[/alt] and the properties section is set as shown below.</p>
 
-<pre class="code">
+<pre><code>
 var osmb = new OpenLayers.Layer.Buildings();
 map.addLayer(osmb);
 
@@ -81,23 +84,11 @@ var data = {
 };
 
 osmb.geoJSON(data);
-</pre>
+</code></pre>
 
 <script>
-var pre = document.querySelectorAll('.code');
-for (var i = 0, il = pre.length; i < il; i++) {
-    hljs.highlightBlock(pre[i]);
-    pre[i].onclick = function (e) {
-        this.className += ' large';
-        e.cancelBubble = true;
-    };
-}
-
-document.onclick = function () {
-    for (var i = 0, il = pre.length; i < il; i++) {
-        pre[i].className = pre[i].className.replace(/ large/g, '');
-    }
-};
+hljs.tabReplace = '  ';
+hljs.initHighlightingOnLoad();
 </script>
 
 <?php pageFooter()?>

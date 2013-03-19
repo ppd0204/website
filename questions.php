@@ -5,6 +5,18 @@ require_once("$root/base.php");
 pageHeader("Questions & Answers", "faq");
 ?>
 
+<style>
+dt {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+dd {
+    margin-left: 0;
+    margin-bottom: 20px;
+}
+</style>
+
 <p>Most of these questions would come to my mind. But it's totally up to you, feel free to ask more.</p>
 
 <ul>
@@ -27,12 +39,11 @@ pageHeader("Questions & Answers", "faq");
     The engine doesn't support it yet but it will quite soon. It' might turn out it requires WebGL to implement it.</dd>
 
     <dt><a name="data"></a>Are you planning to provide world wide data coverage?</dt>
-    <dd>This is primarily a frontend engine. Therefore the data is just an exerpt and at the moment it will be up to you to import data.
-    I'm also trying to provide you a data service through <a href="http://www.osm-3d.org/">OSM-3D</a>.</dd>
+    <dd>This is primarily a frontend engine. Therefore the data is just an exerpt and at the moment it will be up to you to import data.</dd>
 
     <dt><a name="webgl"></a>Isn't this like WebGL Google Maps on my desktop browser?</dt>
     <dd>Talking about the version which looks pretty much like this (not the photorealistic one): the idea is the same.
-    Although they are using powerful WebGL it's almost unusable on my desktop machine. And it wouldn't run on most mobile devices.
+    Although they are using powerful WebGL it's almost unusable on my desktop machine. And it wouldn't run on many mobile devices.
     Anyway, this library will support WebGL in the future too, and it will do it right.</dd>
 
     <dt><a name="mobile"></a>But it is like Google Maps on my Android mobile phone?</dt>

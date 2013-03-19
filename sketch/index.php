@@ -5,7 +5,7 @@ require_once("$root/base.php");
 <!DOCTYPE html>
 <html>
 <head>
-    <title>OSM Buildings - Anaglyph 3D</title>
+    <title>OSM Buildings - Sketch style</title>
 	<meta property="title" content="<?php echo SITE_TITLE?>">
 	<meta property="description" content="<?php echo SITE_DESCRIPTION?>">
 	<?php require_once(ROOT."/assets/keywords.php")?>
@@ -16,7 +16,7 @@ require_once("$root/base.php");
 	<link rel="stylesheet" href="<?php echo ROOT?>/assets/fullscreen.css">
     <link rel="stylesheet" href="<?php echo ROOT?>/js/leaflet-0.5.1/leaflet.css">
     <script src="<?php echo ROOT?>/js/leaflet-0.5.1/leaflet.js"></script>
-    <script src="L.BuildingsLayer-anaglyph3d.js"></script>
+    <script src="L.BuildingsLayer-sketch.js"></script>
 </head>
 
 <body>

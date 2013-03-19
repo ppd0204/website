@@ -2,10 +2,10 @@
 $root = "..";
 require_once("$root/base.php");
 
-pageHeader("Examples - Draw", "examples");
+pageHeader("Draw", "examples");
 ?>
 
-<link rel="stylesheet" href="<?php echo ROOT?>/assets/default.css">
+<link rel="stylesheet" href="<?php echo ROOT?>/assets/example.css">
 <link rel="stylesheet" href="js/leaflet.draw/leaflet.draw.css">
 <link rel="stylesheet" href="<?php echo ROOT?>/js/highlight/github.css">
 <script src="<?php echo ROOT?>/js/Fly.js"></script>
@@ -28,7 +28,7 @@ Height:
 <input type="text" value="300" maxlength="3" size="3" onkeyup="setHeight(this)">
 </p>
 
-<pre id="code" class="code"></pre>
+<pre><code id="code"></code></pre>
 
 <script id="src">
 var map = new L.Map('map').setView([52.49480, 13.42857], 17);
@@ -100,7 +100,7 @@ function setHeight(el) {
 
 Fly.on('ready', function () {
     var src = Fly.wrap('#src');
-    new Example('#code', src.innerText);
+    setCode('#code', src.innerText);
 });
 </script>
 

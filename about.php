@@ -5,9 +5,17 @@ require_once("$root/base.php");
 pageHeader("About me", "about");
 ?>
 
+<style>
+.avatar {
+    width: 80px;
+    height: 80px;
+    float:right;
+}
+</style>
+
 <p>Hi,</p>
 
-<img src="http://www.gravatar.com/avatar/<?php echo md5(strtolower(trim("jama@keks.com")))?>" style="width:80px;height:80px;float:right;">
+<img src="http://www.gravatar.com/avatar/<?php echo md5(strtolower(trim("jama@keks.com")))?>" class="avatar">
 
 <p>I'm Jan Marsch, living in Berlin, Germany.</p>
 

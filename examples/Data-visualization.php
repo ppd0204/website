@@ -2,10 +2,10 @@
 $root = "..";
 require_once("$root/base.php");
 
-pageHeader("Examples - Data visualization", "examples");
+pageHeader("Data visualization", "examples");
 ?>
 
-<link rel="stylesheet" href="<?php echo ROOT?>/assets/default.css">
+<link rel="stylesheet" href="<?php echo ROOT?>/assets/example.css">
 <link rel="stylesheet" href="<?php echo ROOT?>/js/highlight/github.css">
 <script src="<?php echo ROOT?>/js/Fly.js"></script>
 <script src="<?php echo ROOT?>/js/highlight/highlight.pack.js"></script>
@@ -14,7 +14,7 @@ pageHeader("Examples - Data visualization", "examples");
 
 <div id="map"></div>
 
-<pre id="code" class="code"></pre>
+<pre><code id="code"></code></pre>
 
 <script id="src">
 var map = new L.Map('map').setView([37.80000, -96.0000], 4);
@@ -51,7 +51,7 @@ new L.BuildingsLayer().addTo(map).geoJSON(censusData);
 <script>
 Fly.on('ready', function () {
     var src = Fly.wrap('#src');
-    new Example('#code', src.innerText);
+    setCode('#code', src.innerText);
 });
 </script>
 

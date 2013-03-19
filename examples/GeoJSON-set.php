@@ -2,10 +2,10 @@
 $root = "..";
 require_once("$root/base.php");
 
-pageHeader("Examples - GeoJSON set", "examples");
+pageHeader("GeoJSON set", "examples");
 ?>
 
-<link rel="stylesheet" href="<?php echo ROOT?>/assets/default.css">
+<link rel="stylesheet" href="<?php echo ROOT?>/assets/example.css">
 <link rel="stylesheet" href="<?php echo ROOT?>/js/highlight/github.css">
 <script src="<?php echo ROOT?>/js/Fly.js"></script>
 <script src="<?php echo ROOT?>/js/highlight/highlight.pack.js"></script>
@@ -13,7 +13,7 @@ pageHeader("Examples - GeoJSON set", "examples");
 
 <div id="map"></div>
 
-<pre id="code" class="code"></pre>
+<pre><code id="code"></code></pre>
 
 <script id="src">
 var map = new L.Map('map').setView([52.49480, 13.42857], 17);
@@ -137,7 +137,7 @@ new L.BuildingsLayer().addTo(map).geoJSON(geoJSONData);
 <script>
 Fly.on('ready', function () {
     var src = Fly.wrap('#src');
-    new Example('#code', src.innerText);
+    setCode('#code', src.innerText);
 });
 </script>
 
