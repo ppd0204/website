@@ -34,7 +34,7 @@ map.setCenter(
         ),
     17
 );
-var osmb = new OpenLayers.Layer.Buildings({ url: '../server/?w={w}&n={n}&e={e}&s={s}&z={z}' });
+var osmb = new OpenLayers.Layer.Buildings({ url: '<?php echo ROOT?>/server/?w={w}&n={n}&e={e}&s={s}&z={z}' });
 map.addLayer(osmb);
 </script>
 

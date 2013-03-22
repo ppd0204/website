@@ -41,26 +41,15 @@
         }
     }
     </style>
+    <script src="../js/Fly.js"></script>
     <script src="../js/leaflet-0.5.1/leaflet.js"></script>
     <script src="../js/L.BuildingsLayer.js"></script>
+    <script src="../js/scripts.js"></script>
 </head>
 
 <body>
     <div id="map"></div>
     <a href="http://osmbuildings.org/"><img src="../logo.png" class="logo"></a>
-
-	<script>
-    var map = new L.Map('map').setView([52.50440, 13.33522], 17);
-
-    new L.TileLayer(
-        'http://{s}.tiles.mapbox.com/v3/osmbuildings.map-c8zdox7m/{z}/{x}/{y}.png',
-        { attribution: 'Map tiles &copy; <a href="http://mapbox.com">MapBox</a>', maxZoom: 17 }
-    ).addTo(map);
-
-    var osmb = new L.BuildingsLayer({ url: '../server/?w={w}&n={n}&e={e}&s={s}&z={z}' }).addTo(map);
-	osmb.setStyle({ shadows: 1 });
-    L.control.layers({}, { Buildings: osmb }).addTo(map);
-    </script>
 
     <div class="datetime">
         <label for="time">Time: </label>
@@ -71,47 +60,51 @@
     </div>
 
     <script>
-    var timeRange = document.querySelector('#time');
-    var timeRangeLabel = document.querySelector('*[for=time]');
+    Fly.on('ready', function() {
+        initMap();
 
-    var dateRange = document.querySelector('#date');
-    var dateRangeLabel = document.querySelector('*[for=date]');
+        var timeRange = document.querySelector('#time');
+        var timeRangeLabel = document.querySelector('*[for=time]');
 
-    var date = new Date();
+        var dateRange = document.querySelector('#date');
+        var dateRangeLabel = document.querySelector('*[for=date]');
 
-    var timeScale = 4,
-		dateScale = 2,
-		Y = date.getFullYear(),
-        M = date.getMonth(),
-        D = date.getDate() < 15 ? 1 : 15,
-        h = date.getHours(),
-        m = date.getMinutes() % 4 * 15;
+        var date = new Date();
 
-	timeRange.value = h * timeScale;
-    dateRange.value = M * dateScale;
-    changeDate();
+        var timeScale = 4,
+            dateScale = 2,
+            Y = date.getFullYear(),
+            M = date.getMonth(),
+            D = date.getDate() < 15 ? 1 : 15,
+            h = date.getHours(),
+            m = date.getMinutes() % 4 * 15;
 
-    function pad(v) {
-        return (v < 10 ? '0' : '') + v;
-    }
-
-    function changeDate() {
-        timeRangeLabel.innerText = 'Time: ' + pad(h) + ':' + pad(m);
-        dateRangeLabel.innerText = 'Date: ' + Y + '-' + pad(M+1) + '-' + pad(D);
-        osmb.setDate(new Date(Y, M, D, h, m));
-    }
-
-    timeRange.addEventListener('change', function () {
-        h = this.value / timeScale <<0;
-        m = this.value % timeScale * 15;
+        timeRange.value = h * timeScale;
+        dateRange.value = M * dateScale;
         changeDate();
-    }, false);
 
-    dateRange.addEventListener('change', function () {
-        M = this.value / dateScale <<0;
-        D = this.value % dateScale ? 15 : 1;
-        changeDate();
-    }, false);
+        function pad(v) {
+            return (v < 10 ? '0' : '') + v;
+        }
+
+        function changeDate() {
+            timeRangeLabel.innerText = 'Time: ' + pad(h) + ':' + pad(m);
+            dateRangeLabel.innerText = 'Date: ' + Y + '-' + pad(M+1) + '-' + pad(D);
+            osmb.setDate(new Date(Y, M, D, h, m));
+        }
+
+        timeRange.addEventListener('change', function () {
+            h = this.value / timeScale <<0;
+            m = this.value % timeScale * 15;
+            changeDate();
+        }, false);
+
+        dateRange.addEventListener('change', function () {
+            M = this.value / dateScale <<0;
+            D = this.value % dateScale ? 15 : 1;
+            changeDate();
+        }, false);
+    });
     </script>
 
 	<script src="../js/piwik.js"></script>

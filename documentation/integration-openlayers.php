@@ -46,7 +46,7 @@ Right now, the library's backend provides sample data for cities Berlin and Fran
 For your city of choice, you need to convert OSM data yourself.</p>
 
 <pre class="code">
-map.addLayer(new OpenLayers.Layer.Buildings({ url: '../server/?w={w}&n={n}&e={e}&s={s}&z={z}' }));
+map.addLayer(new OpenLayers.Layer.Buildings({ url: 'server/?w={w}&n={n}&e={e}&s={s}&z={z}' }));
 </pre>
 
 <h2>3.b Add the buildings layer, GeoJSON</h2>

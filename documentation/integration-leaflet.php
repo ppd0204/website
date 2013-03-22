@@ -39,7 +39,7 @@ Right now, the library's backend provides sample data for cities Berlin and Fran
 For your city of choice, you need to convert OSM data yourself.</p>
 
 <pre class="code">
-new L.BuildingsLayer({ url: '../server/?w={w}&n={n}&e={e}&s={s}&z={z}' }).addTo(map);
+new L.BuildingsLayer({ url: 'server/?w={w}&n={n}&e={e}&s={s}&z={z}' }).addTo(map);
 </pre>
 
 <h2>3.b Add the buildings layer, GeoJSON</h2>

@@ -5,6 +5,8 @@ require_once("$root/base.php");
 pageHeader("Documentation - API");
 ?>
 
+<link rel="stylesheet" href="<?php echo ROOT?>/assets/default.css">
+
 <a name="constructors"><h2>Constructors</h2></a>
 
 <table>
