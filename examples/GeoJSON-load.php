@@ -8,8 +8,8 @@ pageHeader("GeoJSON load", "examples");
 <link rel="stylesheet" href="<?php echo ROOT?>/assets/example.css">
 <link rel="stylesheet" href="<?php echo ROOT?>/js/highlight/github.css">
 <script src="<?php echo ROOT?>/js/Fly.js"></script>
+<script src="<?php echo ROOT?>/js/scripts.js"></script>
 <script src="<?php echo ROOT?>/js/highlight/highlight.pack.js"></script>
-<script src="<?php echo ROOT?>/js/Example.js"></script>
 
 <div id="map"></div>
 

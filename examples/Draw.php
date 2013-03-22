@@ -9,8 +9,8 @@ pageHeader("Draw", "examples");
 <link rel="stylesheet" href="js/leaflet.draw/leaflet.draw.css">
 <link rel="stylesheet" href="<?php echo ROOT?>/js/highlight/github.css">
 <script src="<?php echo ROOT?>/js/Fly.js"></script>
+<script src="<?php echo ROOT?>/js/scripts.js"></script>
 <script src="<?php echo ROOT?>/js/highlight/highlight.pack.js"></script>
-<script src="<?php echo ROOT?>/js/Example.js"></script>
 <script src="js/leaflet.draw/leaflet.draw.js"></script>
 
 <div id="map"></div>
