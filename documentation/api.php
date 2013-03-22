@@ -36,7 +36,6 @@ td {
 .code {
     white-space: pre;
     background-color: #f8f8ff;
-    white-space: pre;
     font-family: monospace;
 }
 </style>

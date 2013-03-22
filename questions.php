@@ -27,6 +27,8 @@ dd {
     <li><a href="#mobile">But it is like Google Maps on my Android mobile phone?</a></li>
     <li><a href="#photorealistic">But now, aren't Google's and Apple's new 3D Maps much more realistic?</a></li>
     <li><a href="#opensource">Will your engine stay open source?</a></li>
+    <li><a href="#license">What is the license of the library and its data?</a></li>
+
 </ul>
 
 <dl>
@@ -56,6 +58,12 @@ dd {
 
     <dt><a name="opensource"></a>Will your engine stay open source?</dt>
     <dd>Yes, it will. There are no charges, nothing.</dd>
+
+    <dt><a name="license"></a>What is the license of the library and its data?</dt>
+    <dd>The library source code, minified code, backend scripts, converters etc. are <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>.<br>
+    Building data is mostly imported from OpenStreetMaps and therefore licensed under ODbL, data from other sources uses equivalent licenses.<br>
+    Using the streaming server and map tiles from outside osmbuildings.org is prohibited. You can easily set up your own environment and we are glad to help.
+    </dd>
 </dl>
 
 <?php pageFooter()?>

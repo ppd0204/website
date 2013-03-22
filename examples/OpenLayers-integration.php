@@ -5,7 +5,6 @@ require_once("$root/base.php");
 pageHeader("OpenLayers integration", "examples");
 ?>
 
-<link rel="stylesheet" href="<?php echo ROOT?>/assets/example.css">
 <link rel="stylesheet" href="<?php echo ROOT?>/js/highlight/github.css">
 <script src="<?php echo ROOT?>/js/Fly.js"></script>
 <script src="<?php echo ROOT?>/js/scripts.js"></script>
@@ -14,8 +13,6 @@ pageHeader("OpenLayers integration", "examples");
 <script src="<?php echo ROOT?>/js/OpenLayers.Layer.Buildings.js"></script>
 
 <div id="map"></div>
-
-<p>Integrating with OpenLayers layer switch. Your server needs to be running for this example.</p>
 
 <pre><code id="code"></code></pre>
 
@@ -39,7 +36,7 @@ map.addLayer(osmb);
 </script>
 
 <script>
-Fly.on('ready', function () {
+Fly.on('ready', function() {
     var src = Fly.wrap('#src');
     setCode('#code', src.innerText);
 });

@@ -100,13 +100,13 @@ require_once("$root/base.php");
             osmb.setDate(new Date(Y, M, D, h, m));
         }
 
-        timeRange.addEventListener('change', function () {
+        timeRange.addEventListener('change', function() {
             h = this.value / timeScale <<0;
             m = this.value % timeScale * 15;
             changeDate();
         }, false);
 
-        dateRange.addEventListener('change', function () {
+        dateRange.addEventListener('change', function() {
             M = this.value / dateScale <<0;
             D = this.value % dateScale ? 15 : 1;
             changeDate();

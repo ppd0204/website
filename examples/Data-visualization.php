@@ -5,7 +5,6 @@ require_once("$root/base.php");
 pageHeader("Data visualization", "examples");
 ?>
 
-<link rel="stylesheet" href="<?php echo ROOT?>/assets/example.css">
 <link rel="stylesheet" href="<?php echo ROOT?>/js/highlight/github.css">
 <script src="<?php echo ROOT?>/js/Fly.js"></script>
 <script src="<?php echo ROOT?>/js/scripts.js"></script>
@@ -49,7 +48,7 @@ new L.BuildingsLayer().addTo(map).geoJSON(censusData);
 </script>
 
 <script>
-Fly.on('ready', function () {
+Fly.on('ready', function() {
     var src = Fly.wrap('#src');
     setCode('#code', src.innerText);
 });

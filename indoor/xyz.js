@@ -1,5 +1,5 @@
 
-var xyz = (function (win) {
+var xyz = (function(win) {
 
 	var sin = Math.sin,
         cos = Math.cos,
@@ -460,15 +460,15 @@ var xyz = (function (win) {
 
         render: render,
 
-        scale: function (x, y, z) {
+        scale: function(x, y, z) {
             transformMatrix = scaleMatrix(x, y, z);
         },
 
-        translate: function (x, y, z) {
+        translate: function(x, y, z) {
             transformMatrix = translateMatrix(x, y, z);
         },
 
-        rotate: function (x, y, z) {
+        rotate: function(x, y, z) {
             transformMatrix = rotateMatrix(x, y, z);
         }
     };

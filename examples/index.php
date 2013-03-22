@@ -6,36 +6,29 @@ pageHeader("Examples", "examples");
 ?>
 
 <style>
-ul.boxample {
+ul.example {
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
 
-.boxample li {
+.example li {
     margin: 0 10px 10px 0;
-    padding: 15px;
-    vertical-align: top;
-    width: 450px;
-    min-height: 105px;
-    -webkit-box-shadow: 0 0 10px #999999;
-    -moz-box-shadow: 0 0 10px #999999;
-    -o-box-shadow: 0 0 10px #999999;
-    box-shadow: 0 0 10px #999999;
+    min-height: 80px;
 }
 
-.boxample h3 {
+.example h3 {
     margin: 0;
     text-decoration: none;
     color: #000000;
 }
 
-.boxample img {
+.example img {
     width: 150px;
     height: 75px;
     float: left;
     margin-right: 15px;
-    border: 0;
+    border: 1px solid #999999;
 }
 </style>
 
@@ -60,7 +53,7 @@ ul.boxample {
 
 <h2>Projects using OSM Buildings</h2>
 
-<ul class="boxample">
+<ul class="example">
 <li><a href="http://metropolis.business-geografic.com/osmb/"><img src="<?php echo ROOT?>/assets/images/screenshots/Paris.jpg"></a>
     <h3>OSM Buildings Experiment</h3>
     Paris, France<br>

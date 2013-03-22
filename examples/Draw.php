@@ -5,13 +5,25 @@ require_once("$root/base.php");
 pageHeader("Draw", "examples");
 ?>
 
-<link rel="stylesheet" href="<?php echo ROOT?>/assets/example.css">
 <link rel="stylesheet" href="js/leaflet.draw/leaflet.draw.css">
 <link rel="stylesheet" href="<?php echo ROOT?>/js/highlight/github.css">
 <script src="<?php echo ROOT?>/js/Fly.js"></script>
 <script src="<?php echo ROOT?>/js/scripts.js"></script>
 <script src="<?php echo ROOT?>/js/highlight/highlight.pack.js"></script>
 <script src="js/leaflet.draw/leaflet.draw.js"></script>
+
+<style>
+.color {
+    cursor: pointer;
+    border: 1px solid #666666;
+    width: 50px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+}
+</style>
 
 <div id="map"></div>
 
@@ -59,7 +71,7 @@ var color = '#ffcc00';
 // we're not adding any osmbuildings upfront
 var osmb = new L.BuildingsLayer().addTo(map);
 
-map.on('draw:poly-created', function (e) {
+map.on('draw:poly-created', function(e) {
     // hack: get coordinates from event object
     var polygon = e.poly._latlngs;
 
@@ -98,7 +110,7 @@ function setHeight(el) {
     height = parseInt(el.value) || 50;
 }
 
-Fly.on('ready', function () {
+Fly.on('ready', function() {
     var src = Fly.wrap('#src');
     setCode('#code', src.innerText);
 });

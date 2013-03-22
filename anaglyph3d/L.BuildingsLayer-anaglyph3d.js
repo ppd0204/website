@@ -7,7 +7,7 @@
 
 /*jshint bitwise:false */
 
-(function (global) {
+(function(global) {
     'use strict';
 
 
@@ -30,7 +30,7 @@
 
 /*jshint white:false */
 
-var Color = (function () {
+var Color = (function() {
 
     function hsla2rgb(hsla) {
         var r, g, b;
@@ -82,22 +82,22 @@ var Color = (function () {
 
     var proto = C.prototype;
 
-    proto.toString = function () {
+    proto.toString = function() {
         return 'rgba(' + [this.r, this.g, this.b, this.a.toFixed(2)].join(',') + ')';
     };
 
-    proto.adjustLightness = function (l) {
+    proto.adjustLightness = function(l) {
         var hsla = Color.toHSLA(this);
         hsla.l *= l;
         hsla.l = Math.min(1, Math.max(0, hsla.l));
         return hsla2rgb(hsla);
     };
 
-    proto.adjustAlpha = function (a) {
+    proto.adjustAlpha = function(a) {
         return new Color(this.r, this.g, this.b, this.a * a);
     };
 
-    C.parse = function (str) {
+    C.parse = function(str) {
         var m;
         str += '';
         if (~str.indexOf('#')) {
@@ -121,7 +121,7 @@ var Color = (function () {
         }
     };
 
-    C.toHSLA = function (rgba) {
+    C.toHSLA = function(rgba) {
         var
             r = rgba.r / 255,
             g = rgba.g / 255,
@@ -251,7 +251,7 @@ var Color = (function () {
 
 //****** file: prefix.class.js ******
 
-    global.OSMBuildings = function (u) {
+    global.OSMBuildings = function(u) {
 
 
 //****** file: variables.js ******
@@ -341,7 +341,7 @@ var Color = (function () {
         }
 
         function template(str, data) {
-            return str.replace(/\{ *([\w_]+) *\}/g, function (x, key) {
+            return str.replace(/\{ *([\w_]+) *\}/g, function(x, key) {
                 return data[key];
             });
         }
@@ -351,7 +351,7 @@ var Color = (function () {
 
         function xhr(url, callback) {
             var x = new XMLHttpRequest();
-            x.onreadystatechange = function () {
+            x.onreadystatechange = function() {
                 if (x.readyState !== 4) {
                     return;
                 }
@@ -533,7 +533,7 @@ var Color = (function () {
                 callback = 'jsonpCallback',
                 script = doc.createElement('script')
             ;
-            global[callback] = function (res) {
+            global[callback] = function(res) {
                 delete global[callback];
                 el.removeChild(script);
                 setData(res, !isLatLon);
@@ -759,7 +759,7 @@ var Color = (function () {
         function fadeIn() {
             fadeFactor = 0;
             clearInterval(fadeTimer);
-            fadeTimer = setInterval(function () {
+            fadeTimer = setInterval(function() {
                 fadeFactor += 0.5 * 0.2; // amount * easing
                 if (fadeFactor > 1) {
                     clearInterval(fadeTimer);
@@ -800,7 +800,7 @@ var Color = (function () {
                 isVisible
             ;
 
-            data.sort(function (a, b) {
+            data.sort(function(a, b) {
                 return distance(b[CENTER], sortCam) / b[HEIGHT] * 0.5 - distance(a[CENTER], sortCam) / a[HEIGHT] * 0.5 ;
             });
 
@@ -930,7 +930,7 @@ var Color = (function () {
                 ax, ay, bx, by, _a, _b
             ;
 
-            data.sort(function (a, b) {
+            data.sort(function(a, b) {
                 return distance(b[CENTER], sortCam) / b[HEIGHT] * 0.5 - distance(a[CENTER], sortCam) / a[HEIGHT] * 0.5 ;
             });
 
@@ -1098,22 +1098,22 @@ var Color = (function () {
 
 //****** file: public.js ******
 
-        this.setStyle = function (style) {
+        this.setStyle = function(style) {
             setStyle(style);
             return this;
         };
 
-        this.geoJSON = function (url, isLatLon) {
+        this.geoJSON = function(url, isLatLon) {
             geoJSON(url, isLatLon);
             return this;
         };
 
-        this.setCamOffset = function (x, y) {
+        this.setCamOffset = function(x, y) {
             camX = halfWidth + x;
             camY = height    + y;
         };
 
-        this.setMaxZoom = function (z) {
+        this.setMaxZoom = function(z) {
             maxZoom = z;
         };
 
@@ -1157,11 +1157,11 @@ L.BuildingsLayer = L.Class.extend({
     lastX: 0,
     lastY: 0,
 
-    initialize: function (options) {
+    initialize: function(options) {
         options = L.Util.setOptions(this, options);
     },
 
-    onMove: function () {
+    onMove: function() {
         var mp = L.DomUtil.getPosition(this.map._mapPane);
         this.osmb.setCamOffset(
             this.lastX - mp.x,
@@ -1170,7 +1170,7 @@ L.BuildingsLayer = L.Class.extend({
         this.osmb.render();
     },
 
-    onMoveEnd: function () {
+    onMoveEnd: function() {
         if (this.blockMoveEvent) {
             this.blockMoveEvent = false;
             return;
@@ -1192,11 +1192,11 @@ L.BuildingsLayer = L.Class.extend({
         this.osmb.onMoveEnd();
     },
 
-    onZoomStart: function () {
+    onZoomStart: function() {
         this.osmb.onZoomStart();
     },
 
-    onZoomEnd: function () {
+    onZoomEnd: function() {
         var
             mp = L.DomUtil.getPosition(this.map._mapPane),
             po = this.map.getPixelOrigin()
@@ -1206,12 +1206,12 @@ L.BuildingsLayer = L.Class.extend({
         this.blockMoveEvent = true;
     },
 
-    addTo: function (map) {
+    addTo: function(map) {
         map.addLayer(this);
         return this;
     },
 
-    onAdd: function (map) {
+    onAdd: function(map) {
         this.map = map;
         this.osmb = new OSMBuildings(this.options.url);
 
@@ -1237,7 +1237,7 @@ L.BuildingsLayer = L.Class.extend({
             zoomend: this.onZoomEnd
         }, this);
 
-//        var onZoom = function (opt) {
+//        var onZoom = function(opt) {
 //            var
 //                scale = this.map.getZoomScale(opt.zoom),
 //                offset = this.map._getCenterOffset(opt.center).divideBy(1 - 1 / scale),
@@ -1261,7 +1261,7 @@ L.BuildingsLayer = L.Class.extend({
         this.osmb.render(); // in case of for re-adding this layer
     },
 
-    onRemove: function (map) {
+    onRemove: function(map) {
         map.attributionControl.removeAttribution(OSMBuildings.ATTRIBUTION);
 
         map.off({
@@ -1276,11 +1276,11 @@ L.BuildingsLayer = L.Class.extend({
         this.osmb = null;
     },
 
-    geoJSON: function (url, isLatLon) {
+    geoJSON: function(url, isLatLon) {
         return this.osmb.geoJSON(url, isLatLon);
     },
 
-    setStyle: function (style)  {
+    setStyle: function(style)  {
         return this.osmb.setStyle(style);
     }
 });

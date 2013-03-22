@@ -1,13 +1,13 @@
 //	var searchURL = 'http://open.mapquestapi.com/nominatim/v1/search.php?format=json&json_callback={callback}&q={query}&addressdetails=1&limit=20&viewbox={left},{top},{right},{bottom}',
 //		tilesURL = 'http://otile1.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg',
 //		doc = global.document,
-//		$ = function (q) { return doc.querySelector(q); }
+//		$ = function(q) { return doc.querySelector(q); }
 //	;
 ///*
 //	function enableSearch(form) {
 //		var input = form.elements[0];
 //
-//		form.addEventListener('submit', function (e) {
+//		form.addEventListener('submit', function(e) {
 //			e.preventDefault();
 //			e.stopPropagation();
 //
@@ -26,7 +26,7 @@
 //				bottom: bbox._southWest.lat
 //			};
 //
-//			JSON.load(searchURL, params, function (res) {
+//			JSON.load(searchURL, params, function(res) {
 //				var cities = [];
 //				for (var i = 0, il = res.length; i < il; i++) {
 //					if (res[i].type === 'city') {
@@ -53,7 +53,7 @@
 //		el.children[1].addEventListener('mousedown', map.zoomIn.bind(map));
 //	}
 //
-//	doc.addEventListener('DOMContentLoaded', function () {
+//	doc.addEventListener('DOMContentLoaded', function() {
 //      enableSearch($('#search'));
 //  	zoomControls($('.map-zoom'));
 //	});

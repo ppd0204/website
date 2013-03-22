@@ -9,7 +9,7 @@ pageHeader("About me", "about");
 .avatar {
     width: 80px;
     height: 80px;
-    float:right;
+    float: right;
 }
 </style>
 

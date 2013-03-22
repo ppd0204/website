@@ -2,10 +2,8 @@
 $root = "..";
 require_once("$root/base.php");
 
-pageHeader("Server", "docs");
+pageHeader("Server setup", "docs");
 ?>
-
-<h2>Setup</h2>
 
 <p>In case you like to run OSM Buildings with real building geometry, you need to set up a server environment with PHP and MySQL or PostGIS.<br>
 <em>Notice</em>: one of the next releases will simplify the whole process.</p>

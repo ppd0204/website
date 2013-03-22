@@ -5,16 +5,27 @@ require_once("$root/base.php");
 pageHeader("Styling", "examples");
 ?>
 
-<link rel="stylesheet" href="<?php echo ROOT?>/assets/example.css">
 <link rel="stylesheet" href="<?php echo ROOT?>/js/highlight/github.css">
 <script src="<?php echo ROOT?>/js/Fly.js"></script>
 <script src="<?php echo ROOT?>/js/scripts.js"></script>
 <script src="<?php echo ROOT?>/js/highlight/highlight.pack.js"></script>
 
+<style>
+.color {
+    cursor: pointer;
+    border: 1px solid #666666;
+    width: 50px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+}
+</style>
+
 <div id="map"></div>
 
-<p>Change building styles and check the source code how .setStyle() got affected.<br>
-    Your server needs to be running for this example.</p>
+<p>Change building styles and check the source code how .setStyle() got affected.</p>
 
 <p>
 Wall color:
@@ -59,7 +70,7 @@ function setStyle(el, type) {
     setCode('#code', src.innerText + 'osmb.setStyle({ wallColor: \'' + wallColor + '\', roofColor: \'' + roofColor + ' });');
 }
 
-Fly.on('ready', function () {
+Fly.on('ready', function() {
     src = Fly.wrap('#src');
     setCode('#code', src.innerText);
 });

@@ -5,7 +5,6 @@ require_once("$root/base.php");
 pageHeader("Leaflet integration", "examples");
 ?>
 
-<link rel="stylesheet" href="<?php echo ROOT?>/assets/example.css">
 <link rel="stylesheet" href="<?php echo ROOT?>/js/highlight/github.css">
 <script src="<?php echo ROOT?>/js/Fly.js"></script>
 <script src="<?php echo ROOT?>/js/scripts.js"></script>
@@ -13,8 +12,7 @@ pageHeader("Leaflet integration", "examples");
 
 <div id="map"></div>
 
-<p>Integrating with Leaflet layer switch. Also using dynamic attribution.<br>
-Your server needs to be running for this example.</p>
+<p>Integrating with LeafletJS. Also using dynamic attribution and layer switch.</p>
 
 <pre><code id="code"></code></pre>
 
@@ -31,7 +29,7 @@ L.control.layers({}, { Buildings: osmb }).addTo(map);
 </script>
 
 <script>
-Fly.on('ready', function () {
+Fly.on('ready', function() {
     var src = Fly.wrap('#src');
     setCode('#code', src.innerText);
 });
