@@ -12,7 +12,8 @@ pageHeader();
 
 <script>
 Fly.on('ready', function() {
-    initMap({ lat:52.52111, lon:13.40988, z:17 });
+    defaultState = { lat:52.52111, lon:13.40988, z:17 };
+    initMap();
 });
 
 function mapPosition(lat, lon) {

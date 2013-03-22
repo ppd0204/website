@@ -3,7 +3,7 @@ var map,
     maxZoom = 18,
     osmb,
     osmbURL = '../server/?w={w}&n={n}&e={e}&s={s}&z={z}',
-    defaultState = { lat: 52.50440, lon: 13.33522, z: 17 };
+    defaultState = { lat:52.50440, lon:13.33522, z:17 };
 
 function getMapState() {
     var center = map.getCenter();
@@ -15,21 +15,18 @@ function getMapState() {
 }
 
 function setMapState(state) {
-    var zoom = maxZoom;
+    var zoom = defaultState.z;
     if (state.lat === undefined || state.lon === undefined) {
-        state = defaultSate;
+        state = defaultState;
     }
     if (state.z !== undefined) {
         zoom = Math.max(Math.min(parseInt(state.z, 10), maxZoom), 0);
     }
     map.setView([parseFloat(state.lat), parseFloat(state.lon)], zoom);
-    // osmb.setStyle({ shadows: 1 });
 }
 
-function initMap(state) {
+function initMap() {
     map = new L.Map('map', { zoomControl: false });
-
-    if (state !==)
 
     setMapState(Fly.getUrlParam());
 
