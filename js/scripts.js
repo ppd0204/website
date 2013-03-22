@@ -1,4 +1,3 @@
-
 //	var searchURL = 'http://open.mapquestapi.com/nominatim/v1/search.php?format=json&json_callback={callback}&q={query}&addressdetails=1&limit=20&viewbox={left},{top},{right},{bottom}',
 //		tilesURL = 'http://otile1.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg',
 //		doc = global.document,
@@ -94,19 +93,20 @@ function setMapState(state) {
     map.setView([parseFloat(state.lat), parseFloat(state.lon)], zoom);
 }
 
-function initMap() {
-    map = new L.Map('map', { zoomControl: false });
+function initMap(containerId) {
+    map = new L.Map(containerId || 'map', { zoomControl: false });
 
     setMapState(Fly.getUrlParam());
+    Fly.setUrlParam(getMapState());
 
     new L.TileLayer(tilesURL, { attribution: 'Map tiles &copy; <a href="http://mapbox.com">MapBox</a>', maxZoom: maxZoom }).addTo(map);
 
     map.on('moveend', function() {
-        Fly.setUrlParam(getMapState())
+        Fly.setUrlParam(getMapState());
     });
 
     map.on('zoomend', function() {
-        Fly.setUrlParam(getMapState())
+        Fly.setUrlParam(getMapState());
     });
 
     osmb = new L.BuildingsLayer({ url: osmbURL }).addTo(map);

@@ -57,6 +57,7 @@ require_once("$root/base.php");
 
     <script>
     Fly.on('ready', function() {
+        osmbURL = 'server/?w={w}&n={n}&e={e}&s={s}&z={z}';
         defaultState = { lat:52.52111, lon:13.40988, z:17 };
         initMap();
     });
