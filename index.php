@@ -5,23 +5,18 @@ require_once("$root/base.php");
 pageHeader();
 ?>
 
+<script src="js/Fly.js"></script>
+<script src="js/scripts.js"></script>
+
 <div id="introMap"></div>
 
 <script>
-var map = new L.Map('introMap', { zoomControl: false }).setView([52.52111, 13.40988], 17);
-
-new L.TileLayer(
-    'http://{s}.tiles.mapbox.com/v3/osmbuildings.map-c8zdox7m/{z}/{x}/{y}.png',
-    {
-        attribution: 'Map tiles &copy; <a href="http://mapbox.com">MapBox</a>',
-        maxZoom: 17
-    }
-).addTo(map);
-
-new L.BuildingsLayer({ url: 'server/?w={w}&n={n}&e={e}&s={s}&z={z}' }).addTo(map);
+Fly.on('ready', function() {
+    initMap({ lat:52.52111, lon:13.40988, z:17 });
+});
 
 function mapPosition(lat, lon) {
-    map.setView(new L.LatLng(lat, lon), 17)
+    setMapState({ lat:lat, lon:lon, z:17 });
 }
 </script>
 
