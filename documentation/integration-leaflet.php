@@ -14,8 +14,8 @@ pageHeader("Integration with Leaflet", "docs");
 
 <pre><code>
 &lt;head&gt;
-	&lt;link rel=&quot;stylesheet&quot; href=&quot;http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.css&quot;&gt;
-	&lt;script src=&quot;http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.js&quot;&gt;&lt;/script&gt;
+	&lt;link rel=&quot;stylesheet&quot; href=&quot;http://cdn.leafletjs.com/leaflet-<?php echo LEAFLET_VERSION_LATEST?>/leaflet.css&quot;&gt;
+	&lt;script src=&quot;http://cdn.leafletjs.com/leaflet-<?php echo LEAFLET_VERSION_LATEST?>/leaflet.js&quot;&gt;&lt;/script&gt;
 	&lt;script src=&quot;dist/L.BuildingsLayer.js&quot;&gt;&lt;/script&gt;
 &lt;/head&gt;
 </code></pre>

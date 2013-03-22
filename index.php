@@ -1,7 +1,6 @@
 <?php
 $root = ".";
 require_once("$root/base.php");
-
 // pageHeader();
 ?>
 <!DOCTYPE html>
@@ -16,10 +15,11 @@ require_once("$root/base.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="icon" type="image/png" href="<?php echo ROOT?>/favicon.png">
 	<link rel="stylesheet" href="<?php echo ROOT?>/assets/styles.css">
-
 	<link rel="stylesheet" href="<?php echo ROOT?>/js/leaflet-<?php echo LEAFLET_VERSION_LATEST?>/leaflet.css">
 	<script src="<?php echo ROOT?>/js/leaflet-<?php echo LEAFLET_VERSION_LATEST?>/leaflet.js"></script>
 	<script src="<?php echo ROOT?>/js/L.BuildingsLayer.js"></script>
+    <script src="<?php echo ROOT?>/js/Fly.js"></script>
+    <script src="<?php echo ROOT?>/js/scripts.js"></script>
 </head>
 
 <body>
@@ -56,20 +56,13 @@ require_once("$root/base.php");
     </div>
 
     <script>
-    var map = new L.Map('map', { zoomControl: false }).setView([52.52111, 13.40988], 17);
-
-    new L.TileLayer(
-        'http://{s}.tiles.mapbox.com/v3/osmbuildings.map-c8zdox7m/{z}/{x}/{y}.png',
-        {
-            attribution: 'Map tiles &copy; <a href="http://mapbox.com">MapBox</a>',
-            maxZoom: 17
-        }
-    ).addTo(map);
-
-    new L.BuildingsLayer({ url: '<?php echo ROOT?>/server/?w={w}&n={n}&e={e}&s={s}&z={z}' }).addTo(map);
+    Fly.on('ready', function() {
+        defaultState = { lat:52.52111, lon:13.40988, z:17 };
+        initMap();
+    });
 
     function mapPosition(lat, lon) {
-        map.setView(new L.LatLng(lat, lon), 17)
+        setMapState({ lat:lat, lon:lon, z:17 });
     }
     </script>
 
