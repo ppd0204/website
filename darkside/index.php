@@ -69,15 +69,15 @@
         var dateRange = document.querySelector('#date');
         var dateRangeLabel = document.querySelector('*[for=date]');
 
-        var date = new Date();
+        time = new Date();
 
         var timeScale = 4,
             dateScale = 2,
-            Y = date.getFullYear(),
-            M = date.getMonth(),
-            D = date.getDate() < 15 ? 1 : 15,
-            h = date.getHours(),
-            m = date.getMinutes() % 4 * 15;
+            Y = time.getFullYear(),
+            M = time.getMonth(),
+            D = time.getDate() < 15 ? 1 : 15,
+            h = time.getHours(),
+            m = time.getMinutes() % 4 * 15;
 
         timeRange.value = h * timeScale;
         dateRange.value = M * dateScale;
@@ -91,6 +91,7 @@
             timeRangeLabel.innerText = 'Time: ' + pad(h) + ':' + pad(m);
             dateRangeLabel.innerText = 'Date: ' + Y + '-' + pad(M+1) + '-' + pad(D);
             osmb.setDate(new Date(Y, M, D, h, m));
+            saveState();
         }
 
         timeRange.addEventListener('change', function () {

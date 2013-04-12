@@ -18,7 +18,7 @@ Fly.on('ready', function() {
 });
 
 function mapPosition(lat, lon) {
-    setMapState({ lat:lat, lon:lon, z:17 });
+    setState({ lat:lat, lon:lon, z:17 });
 }
 </script>
 

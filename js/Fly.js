@@ -103,11 +103,11 @@
     Fly.getUrlParam = function() {
         var res = {},
             query = location.search.replace(/^\?+/, ''),
-            param = query.split('&'),
+            param = query ? query.split('&') : [],
             pair;
         for (var i = 0, il = param.length; i < il; i++) {
             pair = param[i].split('=');
-            res[ pair[0] ] = pair[1] || true;
+            res[ decodeURIComponent(pair[0]) ] = decodeURIComponent(pair[1]) || true;
         }
         return res;
     };
