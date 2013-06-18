@@ -17,3 +17,15 @@ RewriteRule ^examples/census.*$ http://osmbuildings.org/examples/Data-visualizat
 RewriteRule ^examples.php$ http://osmbuildings.org/examples/ [R=301,L]
 
 RewriteRule ^examples/(.*).html$ http://osmbuildings.org/examples/$1.php [R=301,L]
+
+RewriteRule ^acid/(.*)$ http://osmbuildings.org/examples/acid/$1 [R=301,L]
+
+RewriteRule ^anaglyph3d/(.*)$ http://osmbuildings.org/examples/anaglyph3d/$1 [R=301,L]
+
+RewriteRule ^darkside/(.*)$ http://osmbuildings.org/examples/darkside/$1 [R=301,L]
+
+RewriteRule ^indoor/(.*)$ http://osmbuildings.org/examples/indoor/$1 [R=301,L]
+
+RewriteRule ^nyc/(.*)$ http://osmbuildings.org/examples/nyc/$1 [R=301,L]
+
+RewriteRule ^sketch/(.*)$ http://osmbuildings.org/examples/sketch/$1 [R=301,L]

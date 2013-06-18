@@ -2,7 +2,6 @@ var map,
     tilesURL = 'http://{s}.tiles.mapbox.com/v3/osmbuildings.map-c8zdox7m/{z}/{x}/{y}.png',
     maxZoom = 18,
     osmb,
-    osmbURL = '../server/?w={w}&n={n}&e={e}&s={s}&z={z}',
     defaultPos = [52.50440, 13.33522],
     defaultZoom = 17,
     name, defaultName = document.title,
@@ -72,5 +71,5 @@ function initMap(containerId) {
     map.on('moveend', saveState);
     map.on('zoomend', saveState);
 
-    osmb = new L.BuildingsLayer({ url: osmbURL }).addTo(map);
+    osmb = new L.BuildingsLayer().addTo(map).load();
 }
