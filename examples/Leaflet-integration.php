@@ -13,8 +13,7 @@ pageHeader("Examples - Leaflet integration");
 
 <div id="map"></div>
 
-<p>Integrating with Leaflet layer switch. Also using dynamic attribution.<br>
-    Your server needs to be running for this example.</p>
+<p>Integrating with Leaflet layer switch. Also using dynamic attribution.</p>
 
 <pre id="code" class="code"></pre>
 
@@ -26,7 +25,7 @@ new L.TileLayer(
     { attribution: 'Map tiles &copy; <a href="http://mapbox.com">MapBox</a>', maxZoom: 17 }
 ).addTo(map);
 
-var osmb = new L.BuildingsLayer({ url: '<?php echo ROOT?>/server/?w={w}&n={n}&e={e}&s={s}&z={z}' }).addTo(map);
+var osmb = new L.BuildingsLayer().addTo(map).load();
 L.control.layers({}, { Buildings: osmb }).addTo(map);
 </script>
 

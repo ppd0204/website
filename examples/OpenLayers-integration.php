@@ -15,7 +15,7 @@ pageHeader("Examples - OpenLayers integration");
 
 <div id="map"></div>
 
-<p>Integrating with OpenLayers layer switch. Your server needs to be running for this example.</p>
+<p>Integrating with OpenLayers layer switch.</p>
 
 <pre id="code" class="code"></pre>
 
@@ -34,8 +34,9 @@ map.setCenter(
         ),
     17
 );
-var osmb = new OpenLayers.Layer.Buildings({ url: '<?php echo ROOT?>/server/?w={w}&n={n}&e={e}&s={s}&z={z}' });
+var osmb = new OpenLayers.Layer.Buildings();
 map.addLayer(osmb);
+osmb.load();
 </script>
 
 <script>

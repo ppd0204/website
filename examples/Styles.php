@@ -13,8 +13,7 @@ pageHeader("Examples - Styling");
 
 <div id="map"></div>
 
-<p>Change building styles and check the source code how .setStyle() got affected.<br>
-    Your server needs to be running for this example.</p>
+<p>Change building styles and check the source code how .setStyle() got affected.</p>
 
 <p>
 Wall color:
@@ -38,7 +37,7 @@ new L.TileLayer(
     { attribution:'Map tiles &copy; <a href="http://mapbox.com">MapBox</a>', maxZoom:17 }
 ).addTo(map);
 
-var osmb = new L.BuildingsLayer({ url: '<?php echo ROOT?>/server/?w={w}&n={n}&e={e}&s={s}&z={z}' }).addTo(map);
+var osmb = new L.BuildingsLayer().addTo(map).load();
 </script>
 
 <script>
