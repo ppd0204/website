@@ -1,7 +1,6 @@
-var GeoSearch = (function() {
+var GeoSearch = function(map, searchField) {
 
-	var _url = 'http://ws.geonames.org/searchJSON?q={query}&maxRows=1&lang={language}&username={username}';
-	var _map, _searchField
+	var url = 'http://ws.geonames.org/searchJSON?q={query}&maxRows={limit}&lang={language}&username={username}';
 
 	function xhr(url, callback) {
 		var req = new XMLHttpRequest();
@@ -27,37 +26,45 @@ var GeoSearch = (function() {
 		});
 	}
 
-	function processResults(res) {
-	//    if (res.length === 0)
-	//        throw this._config.notFoundMessage;
-		console.log(res);
-//      _map.setView([location.Y, location.X], ###zoomLevel, false);
+    function onKeyUp(e) {
+        if (e.keyCode === 13) {
+            search();
+        }
+    }
+
+	function onSearch() {
+        searchField.removeEventListener('keyup', onKeyUp, null);
+        searchField.removeEventListener('search', onSearch, null);
+        searchField.addEventListener('search', search, null);
+        search();
 	}
 
-	var me = function(map, searchField) {
-		_map = map;
-		_searchField = searchField;
-	}
-
-	me.search = function() {
-		xhr(template(_url, {
-			q: searchField.value,
-			language: en,
+	function search() {
+        if (!searchField.value) {
+            return;
+        }
+		xhr(template(url, {
+			query: searchField.value,
+            limit: 1,
+			language: navigator.language,
 			username: 'osmbuildings'
-		}), processResults);
-	};
+		}), onResults);
+	}
 
-	return me;
-}());
+    function onResults(res) {
+        var item = res.geonames[0];
+        if (!item) {
+            searchField.style.backgroundColor = '#ffcccc';
+        } else {
+            searchField.style.backgroundColor = '#ffffff';
+            map.setView([item.lat, item.lng], 14, false);
+        }
+	}
 
-//    searchLabel = options.searchLabel || 'search for address...';
+    searchField.placeholder = 'Search...';
+    searchField.addEventListener('keyup', onKeyUp, null);
+    searchField.addEventListener('search', onSearch, null);
+};
+
 //    notFoundMessage = options.notFoundMessage || 'Sorry, that address could not be found.';
-//    messageHideDelay = options.messageHideDelay || 3000;
-//        .addListener(this._container, 'keypress', this._onKeyUp, this);
-
-//    _printError: function(message) {
-//            .fadeIn('slow').delay(this._config.messageHideDelay).fadeOut('slow',
-//
-//    _onKeyUp: function (e) {
-//        var enterKey = 13;
-//        else if (e.keyCode === enterKey) {
+//   .fadeIn('slow').delay(this._config.messageHideDelay).fadeOut('slow',

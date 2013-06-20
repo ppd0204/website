@@ -14,6 +14,12 @@ require_once("config.php");
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="js/leaflet-<?php echo $config["osmb"]["leaflet_version"]?>/leaflet.css">
     <style>
+    * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
     html, body {
         margin: 0;
         padding: 0;
@@ -33,34 +39,46 @@ require_once("config.php");
         height: 100%;
     }
 
-    .navigation {
+    .header {
         background-color: rgba(255,255,255,0.75);
         position: absolute;
         left: 0;
         top: 0;
+        padding: 5px 15px;
         width: 100%;
+        z-index: 100; /* just for IE */
     }
 
-    .navigation ul {
+    #search {
+        width: 300px;
+        border: 1px solid #cccccc;
+        padding: 5px;
+    }
+
+    .header ul {
         list-style-type: none;
         padding: 0;
+        margin: 0;
         display: inline-block;
-        margin: 5px;
     }
 
-    .navigation li {
+    .header li {
         display: inline;
-        margin: 0 10px 0 10px;
+        margin-left: 20px;
         padding: 0;
     }
 
-    .navigation a:link, .navigation a:visited {
+    .header a:link, .header a:visited {
         color: #000000;
         font-size: 10pt;
         text-shadow: 0 1px 0 white;
         white-space: nowrap;
         text-decoration: none;
         cursor: pointer;
+    }
+
+    .header img {
+        border: 0;
     }
 
     .logo {
@@ -71,6 +89,7 @@ require_once("config.php");
         height: 47px;
         border: 0;
         opacity: 0.75;
+        z-index: 100; /* just for IE */
     }
 
     .leaflet-container .leaflet-control-attribution {
@@ -80,8 +99,14 @@ require_once("config.php");
     }
 
     @media screen and (max-width: 480px) {
-        .navigation {
+        .header {
+            padding: 5px 10px;
+        }
+        .header ul {
             display: none;
+        }
+        #search {
+            width: 100%;
         }
         .logo {
             width: 75px;
@@ -95,8 +120,11 @@ require_once("config.php");
     }
 
     @media screen and (min-width: 481px) and (max-width: 800px) {
-        .navigation {
+        .header ul {
             display: none;
+        }
+        #search {
+            width: 100%;
         }
         .leaflet-container .leaflet-control-attribution {
             display: none;
@@ -111,12 +139,15 @@ require_once("config.php");
 <body>
 <div id="map"></div>
 
-<div class="navigation"><ul>
+<div class="header">
+    <input id="search" type="search" name="" value="">
+    <ul>
     <li><a href="examples/">Examples</a></li>
     <li><a href="download.php">Download</a></li>
     <li><a href="questions.php">Questions</a></li>
     <li><a href="https://twitter.com/intent/follow?original_referer=$config["site"]["url"]&screen_name=$config["twitter"]["screen_name"]"><img src="assets/twitter.png" style="margin-right:1px">Follow @<?=$config["twitter"]["screen_name"]?></a></li>
-</ul></div>
+    </ul>
+</div>
 
 <a href="<?php echo $config["site"]["url"]?>"><img src="logo.png" alt="Home" title="<?php echo $config["site"]["title"]?>" class="logo"></a>
 
@@ -193,7 +224,7 @@ document.addEventListener('DOMContentLoaded', function onReady() {
         maxZoom:maxZoom
     }).addTo(map);
 
-    var search = new GeoSearch(map, searchField);
+    new GeoSearch(map, document.getElementById('search'));
 
     map.on('moveend', saveMapState);
     map.on('zoomend', saveMapState);
