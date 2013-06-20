@@ -1,4 +1,5 @@
 <?php
+header("Content-Type: text/html; charset=utf-8");
 require_once("config.php");
 ?>
 <!DOCTYPE html>
@@ -11,7 +12,7 @@ require_once("config.php");
     <meta property="keywords" content="<?php echo $config["site"]["keywords"]?>">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<link rel="icon" type="image/png" href="favicon.png">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<link rel="stylesheet" href="js/leaflet-<?php echo $config["osmb"]["leaflet_version"]?>/leaflet.css">
     <style>
     * {
@@ -50,7 +51,7 @@ require_once("config.php");
     }
 
     #search {
-        width: 300px;
+        width: 250px;
         border: 1px solid #cccccc;
         padding: 5px;
     }
@@ -60,6 +61,7 @@ require_once("config.php");
         padding: 0;
         margin: 0;
         display: inline-block;
+		    width: 450px;
     }
 
     .header li {
@@ -98,7 +100,7 @@ require_once("config.php");
         white-space: nowrap;
     }
 
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: 479px) {
         .header {
             padding: 5px 10px;
         }
@@ -119,7 +121,7 @@ require_once("config.php");
         }
     }
 
-    @media screen and (min-width: 481px) and (max-width: 800px) {
+    @media screen and (min-width: 480px) and (max-width: 767px) {
         .header ul {
             display: none;
         }
@@ -140,7 +142,9 @@ require_once("config.php");
 <div id="map"></div>
 
 <div class="header">
-    <input id="search" type="search" name="" value="">
+	<form style="margin:0;padding:0;display:inline;">
+		<input type="search" id="search" name="search" autocorrect="off">
+	</form>
     <ul>
     <li><a href="examples/">Examples</a></li>
     <li><a href="download.php">Download</a></li>
@@ -207,12 +211,11 @@ function restoreMapState() {
 
 var map, osmb, maxZoom = 18;
 var defaultState = {
-    lat:52.50440,
-    lon:13.33522,
+    lat:52.52111,
+    lon:13.40988,
     z:17
 };
 
- // lat:52.52111, lon:13.40988
 
 document.addEventListener('DOMContentLoaded', function onReady() {
     map = new L.Map('map', { zoomControl:false });
