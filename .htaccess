@@ -7,25 +7,12 @@ RewriteCond %{HTTP_HOST} ^(.*\.)?osmbuildings\.(com|net|de|eu)$ [NC]
 RewriteRule ^(.*)$ http://osmbuildings\.org/$1 [R=301,L]
 
 RewriteRule ^documentation.php$ http://osmbuildings.org/documentation/ [R=301,L]
-
 RewriteRule ^documentation/(.*).html$ http://osmbuildings.org/documentation/$1.php [R=301,L]
 
-RewriteRule ^touch.php$ http://osmbuildings.org/examples/Fullscreen.html [R=301,L]
-
-RewriteRule ^examples/census.*$ http://osmbuildings.org/examples/Data-visualization.html [R=301,L]
+RewriteRule ^touch.*$ http://osmbuildings.org/ [R=301,L]
+RewriteRule ^examples/(census|Data-visualization|Fullscreen|GeoJSON-load).*$ http://osmbuildings.org/ [R=301,L]
 
 RewriteRule ^examples.php$ http://osmbuildings.org/examples/ [R=301,L]
-
 RewriteRule ^examples/(.*).html$ http://osmbuildings.org/examples/$1.php [R=301,L]
 
-RewriteRule ^acid/(.*)$ http://osmbuildings.org/examples/acid/$1 [R=301,L]
-
-RewriteRule ^anaglyph3d/(.*)$ http://osmbuildings.org/examples/anaglyph3d/$1 [R=301,L]
-
-RewriteRule ^darkside/(.*)$ http://osmbuildings.org/examples/darkside/$1 [R=301,L]
-
-RewriteRule ^indoor/(.*)$ http://osmbuildings.org/examples/indoor/$1 [R=301,L]
-
-RewriteRule ^nyc/(.*)$ http://osmbuildings.org/examples/nyc/$1 [R=301,L]
-
-RewriteRule ^sketch/(.*)$ http://osmbuildings.org/examples/sketch/$1 [R=301,L]
+RewriteRule ^(acid|anaglyph3d|darkside|indoor|nyc|sketch)/(.*)$ http://osmbuildings.org/examples/$1/$2 [R=301,L]

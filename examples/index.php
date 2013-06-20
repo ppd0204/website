@@ -8,11 +8,9 @@ pageHeader("Examples");
 <ul>
     <li><a href="Leaflet-integration.php">Leaflet integration</a> - Show how it works with layer control and attribution</li>
 	<li><a href="OpenLayers-integration.php">OpenLayers integration</a> - Show how it works with layer control and attribution</li>
-    <li><a href="<?php echo ROOT?>/darkside/">Building shadows</a> - These shadows are date and time dependent, according to sun position</li>
-    <li><a href="Data-visualization.php">Data visualization</a> - No buildings at all: showing US census data on a map</li>
+    <li><a href="darkside/">Building shadows</a> - These shadows are date and time dependent, according to sun position</li>
     <li><a href="Draw.php">Draw</a> - Draw polygons on the map and get them extruded</li>
     <li><a href="Styles.php">Styling</a> - Set colors for walls, roofs and stroke roofs</li>
-    <li><a href="GeoJSON-load.php">GeoJSON load</a> - Show GeoJSON data from CartoDB</li>
     <li><a href="GeoJSON-set.php">GeoJSON set</a> - Put custom GeoJSON on the map</li>
 </ul>
 
@@ -20,9 +18,9 @@ pageHeader("Examples");
 <h2>Test projects based on OSM Buildings</h2>
 
 <ul>
-    <li><a href="<?php echo ROOT?>/sketch/">Sketch style</a> - Buildings rendered like drawn by hand</li>
-    <li><a href="<?php echo ROOT?>/anaglyph3d/">Anaglyph 3D mode</a> - Put your 3D glasses on! It requires more than 3x rendering effort - slow!</li>
-	<li><a href="<?php echo ROOT?>/indoor/">OSM Buildings indoor</a> - A quick test for turning an SVG floor plan into 3D</li>
+    <li><a href="sketch/">Sketch style</a> - Buildings rendered like drawn by hand</li>
+    <li><a href="anaglyph3d/">Anaglyph 3D mode</a> - Put your 3D glasses on! It requires more than 3x rendering effort - slow!</li>
+	<li><a href="indoor/">OSM Buildings indoor</a> - A quick test for turning an SVG floor plan into 3D</li>
 </ul>
 
 
