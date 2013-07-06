@@ -134,7 +134,7 @@ require_once("config.php");
     }
     </style>
 	<script src="js/leaflet-<?php echo $config["osmb"]["leaflet_version"]?>/leaflet.js"></script>
-	<script src="js/L.BuildingsLayer.js"></script>
+	<script src="js/OSMBuildings-Leaflet.js"></script>
   <script src="js/GeoSearch.js"></script>
 </head>
 
@@ -145,6 +145,7 @@ require_once("config.php");
 	<form style="margin:0;padding:0;display:inline;">
 		<input type="search" id="search" name="search" autocorrect="off">
 	</form>
+
     <ul>
     <li><a href="examples/">Examples</a></li>
     <li><a href="download.php">Download</a></li>
@@ -180,6 +181,10 @@ function getUrlParam() {
         pair = param[i].split('=');
         res[ decodeURIComponent(pair[0]) ] = decodeURIComponent(pair[1]) || true;
     }
+    if (res.z) {
+      res.zoom = res.z;
+      delete res.z;
+    }
     return res;
 }
 
@@ -191,7 +196,7 @@ function saveMapState() {
         setUrlParam({
             lat:center.lat.toFixed(5),
             lon:center.lng.toFixed(5),
-            z:map.getZoom()
+            zoom:map.getZoom()
         });
     }, 1000);
 }
@@ -202,9 +207,9 @@ function restoreMapState() {
     if (state.lat !== undefined && state.lon !== undefined) {
         position = [parseFloat(state.lat), parseFloat(state.lon)];
     }
-    var zoom = defaultState.z;
-    if (state.z) {
-        zoom = Math.max(Math.min(parseInt(state.z, 10), maxZoom), 0);
+    var zoom = defaultState.zoom;
+    if (state.zoom) {
+        zoom = Math.max(Math.min(parseInt(state.zoom, 10), maxZoom), 0);
     }
     map.setView(position, zoom);
 }
@@ -213,7 +218,7 @@ var map, osmb, maxZoom = 18;
 var defaultState = {
     lat:52.52111,
     lon:13.40988,
-    z:17
+    zoom:17
 };
 
 
@@ -232,7 +237,7 @@ document.addEventListener('DOMContentLoaded', function onReady() {
     map.on('moveend', saveMapState);
     map.on('zoomend', saveMapState);
 
-    osmb = new L.BuildingsLayer().addTo(map).load();
+    new OSMBuildings(map).loadData();
 });
 </script>
 
