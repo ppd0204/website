@@ -1,18 +1,20 @@
 RewriteEngine On
 
-RewriteCond %{HTTP_HOST} ^(.*\.)?flyjs\..+$ [NC]
-RewriteRule ^.*$ http://osmbuildings\.org/ [R=301,L]
+RewriteCond %{HTTP_HOST} !=osmbuildings.org
+RewriteCond %{QUERY_STRING} ^$
+RewriteRule ^(.*)$ http://osmbuildings.org/$1 [R=301,L]
 
-RewriteCond %{HTTP_HOST} ^(.*\.)?osmbuildings\.(com|net|de|eu)$ [NC]
-RewriteRule ^(.*)$ http://osmbuildings\.org/$1 [R=301,L]
+RewriteCond %{HTTP_HOST} !=osmbuildings.org
+RewriteCond %{QUERY_STRING} !^$
+RewriteRule ^(.*)$ http://osmbuildings.org/$1?%{QUERY_STRING} [R=301,L]
 
-RewriteRule ^documentation.php$ http://osmbuildings.org/documentation/ [R=301,L]
-RewriteRule ^documentation/(.*).html$ http://osmbuildings.org/documentation/$1.php [R=301,L]
+RewriteRule ^documentation.php$ /documentation/ [R=301,L]
+RewriteRule ^documentation/(.*).html$ /documentation/$1.php [R=301,L]
 
-RewriteRule ^touch.*$ http://osmbuildings.org/ [R=301,L]
-RewriteRule ^examples/(census|Data-visualization|Fullscreen|GeoJSON-load).*$ http://osmbuildings.org/ [R=301,L]
+RewriteRule ^touch.*$ /examples/ [R=301,L]
+RewriteRule ^examples/(census|Data-visualization|Fullscreen|GeoJSON-load).*$ /examples/ [R=301,L]
 
-RewriteRule ^examples.php$ http://osmbuildings.org/examples/ [R=301,L]
-RewriteRule ^examples/(.*).html$ http://osmbuildings.org/examples/$1.php [R=301,L]
+RewriteRule ^examples.php$ /examples/ [R=301,L]
+RewriteRule ^examples/(.*).html$ /examples/$1.php [R=301,L]
 
-RewriteRule ^(acid|anaglyph3d|darkside|indoor|nyc|sketch)/(.*)$ http://osmbuildings.org/examples/$1/$2 [R=301,L]
+RewriteRule ^(acid|anaglyph3d|darkside|indoor|nyc|sketch)/(.*)$ /examples/$1/$2 [R=301,L]
