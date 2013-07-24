@@ -24,7 +24,8 @@ $config = array(
     "site" => array(
         "title" => "OSM Buildings",
         "description" => "OSM Buildings - A JavaScript library for visualizing 3D building geometry on interactive maps",
-        "url" => "http://osmbuildings.org/"
+        "url" => "http://osmbuildings.org/",
+        "email" => "mail@osmbuildings.org"
     ),
     "twitter" => array(
         "screen_name" => "osmbuildings",
