@@ -11,8 +11,8 @@ require_once("config.php");
 <meta property="description" content="<?=$config["site"]["description"]?>">
 <meta property="keywords" content="<?=$config["site"]["keywords"]?>">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<link rel="icon" type="image/png" href="favicon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="icon" type="image/png" href="favicon.png">
 <link rel="stylesheet" href="js/leaflet-<?=$config["osmb"]["leaflet_version"]?>/leaflet.css">
 <style>
 * {
@@ -210,7 +210,8 @@ function saveMapState() {
     setUrlParam({
       lat:center.lat.toFixed(5),
       lon:center.lng.toFixed(5),
-      zoom:map.getZoom()
+      zoom:map.getZoom(),
+      url:customUrl
     });
   }, 1000);
 }
@@ -226,9 +227,15 @@ function restoreMapState() {
     zoom = Math.max(Math.min(parseInt(state.zoom, 10), maxZoom), 0);
   }
   map.setView(position, zoom);
+
+  if (state.url) {
+    customUrl = state.url;
+    osmb.loadData(customUrl);
+  }
 }
 
-var map, osmb, maxZoom = 18;
+var map, osmb, customUrl, maxZoom = 20;
+
 var defaultState = {
   lat:52.52111,
   lon:13.40988,
@@ -258,7 +265,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
   
-  restoreMapState();
 
   new L.TileLayer('http://{s}.tiles.mapbox.com/v3/osmbuildings.map-c8zdox7m/{z}/{x}/{y}.png', {
     attribution:'Map tiles &copy; <a href="http://mapbox.com">MapBox</a>',
@@ -270,7 +276,9 @@ document.addEventListener('DOMContentLoaded', function() {
   map.on('moveend', saveMapState);
   map.on('zoomend', saveMapState);
 
-  new OSMBuildings(map).loadData();
+  osmb = new OSMBuildings(map).loadData();
+
+  restoreMapState();
 });
 </script>
 <script src="js/piwik.js"></script>
