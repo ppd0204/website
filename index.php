@@ -179,7 +179,7 @@ function setUrlParam(param) {
 
   for (k in param) {
     v = param[k];
-    if (param.hasOwnProperty(k) && typeof v !== 'object' && typeof v !== 'function') {
+    if (param.hasOwnProperty(k) && typeof v !== 'object' && typeof v !== 'function' && v !== undefined && v !== null && v !== '') {
       res.push(encodeURIComponent(k) + '=' + encodeURIComponent(v));
     }
   }
@@ -211,7 +211,7 @@ function saveMapState() {
       lat:center.lat.toFixed(5),
       lon:center.lng.toFixed(5),
       zoom:map.getZoom(),
-      url:customUrl
+      url:customUrl 
     });
   }, 1000);
 }
@@ -228,13 +228,12 @@ function restoreMapState() {
   }
   map.setView(position, zoom);
 
-  if (state.url) {
-    customUrl = state.url;
+  if (customUrl = state.url) {
     osmb.loadData(customUrl);
   }
 }
 
-var map, osmb, customUrl, maxZoom = 20;
+var map, osmb, customUrl, maxZoom = 18;
 
 var defaultState = {
   lat:52.52111,
