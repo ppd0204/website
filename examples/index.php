@@ -14,7 +14,7 @@ pageHeader("Examples");
 </ul>
 
 
-<h2>Test projects based on OSM Buildings</h2>
+<h2>Prototypes based on OSM Buildings</h2>
 
 <ul>
 <li><a href="sketch/">Sketch style</a> - Buildings rendered like drawn by hand</li>
@@ -23,22 +23,33 @@ pageHeader("Examples");
 </ul>
 
 
-<h2>Projects using OSM Buildings</h2>
+<h2>Selected projects using OSM Buildings</h2>
 
-Boston Greenery
-http://mapmeld.github.io/boston-greenery/?faster=true
-
-
+<a href="mailto:mail@osmbuildings.org">Report your project!</a><br>
 
 <p style="display:block;height:75px;vertical-align:top;">
-<a href="http://metropolis.business-geografic.com/osmb/"><img style="width:150px;height:75px;float:left;margin-right:10px;border:1px solid #cccccc;" src="<?=ROOT?>/assets/images/screenshots/Paris.jpg"></a>
-<b><a href="http://metropolis.business-geografic.com/osmb/">OSM Buildings Experiment</a></b><br>
-Paris, France<br>
-by Fabien Nicollet (<a href="https://twitter.com/fnicollet">@fnicollet</a>)
+<a href="http://mapmeld.github.io/boston-greenery/?faster=true"><img style="width:150px;height:75px;float:left;margin-right:10px;border:1px solid #cccccc;" src="<?=ROOT?>/assets/screenshots/Boston.jpg"></a>
+<b><a href="http://mapmeld.github.io/boston-greenery/?faster=true">Boston Greenery</a></b><br>
+Boston, U.S.<br>
+by Nick Doiron (<a href="https://twitter.com/mapmeld ">@mapmeld</a>)
 </p>
 
 <p style="display:block;height:75px;vertical-align:top;">
-<a href="http://gmaps-utility-gis.googlecode.com/svn/trunk/agsjs/examples/extrudedlayer.html"><img style="width:150px;height:75px;float:left;margin-right:10px;border:1px solid #cccccc;" src="<?=ROOT?>/assets/images/screenshots/Charlotte.jpg"></a>
+<a href="http://tomholderness.wordpress.com/2012/12/12/3DLondon/"><img style="width:150px;height:75px;float:left;margin-right:10px;border:1px solid #cccccc;" src="<?=ROOT?>/assets/screenshots/London.jpg"></a>
+<b><a href="http://tomholderness.wordpress.com/2012/12/12/3DLondon/">3D London</a></b><br>
+London, UK<br>
+by Tom Holderness (<a href="https://twitter.com/iHolderness ">@iHolderness</a>)
+</p>
+
+<p style="display:block;height:75px;vertical-align:top;">
+<a href="http://osmbuildings.ru/"><img style="width:150px;height:75px;float:left;margin-right:10px;border:1px solid #cccccc;" src="<?=ROOT?>/assets/screenshots/Moscow.jpg"></a>
+<b><a href="http://osmbuildings.ru/">osmbuildings.ru</a></b><br>
+Moscow, Russia<br>
+by Sergey Leschina (<a href="https://twitter.com/putnik">@putnik</a>)
+</p>
+
+<p style="display:block;height:75px;vertical-align:top;">
+<a href="http://gmaps-utility-gis.googlecode.com/svn/trunk/agsjs/examples/extrudedlayer.html"><img style="width:150px;height:75px;float:left;margin-right:10px;border:1px solid #cccccc;" src="<?=ROOT?>/assets/screenshots/Charlotte.jpg"></a>
 <b><a href="http://gmaps-utility-gis.googlecode.com/svn/trunk/agsjs/examples/extrudedlayer.html">ArcGIS Maps API Test</a></b><br>
 Charlotte, U.S.<br>
 by Nianwei Liu<br>
@@ -46,17 +57,10 @@ by Nianwei Liu<br>
 </p>
 
 <p style="display:block;height:75px;vertical-align:top;">
-<a href="http://osmbuildings.ru/"><img style="width:150px;height:75px;float:left;margin-right:10px;border:1px solid #cccccc;" src="<?=ROOT?>/assets/images/screenshots/Moscow.jpg"></a>
-<b><a href="http://osmbuildings.ru/">osmbuildings.ru</a></b><br>
-Moscow, Russia<br>
-by Sergey Leschina (<a href="https://twitter.com/putnik">@putnik</a>)
-</p>
-
-<p style="display:block;height:75px;vertical-align:top;">
-<a href="http://tomholderness.wordpress.com/2012/12/12/3DLondon/"><img style="width:150px;height:75px;float:left;margin-right:10px;border:1px solid #cccccc;" src="<?=ROOT?>/assets/images/screenshots/London.jpg"></a>
-<b><a href="http://tomholderness.wordpress.com/2012/12/12/3DLondon/">3D London</a></b><br>
-London, UK<br>
-by Tom Holderness (<a href="https://twitter.com/iHolderness ">@iHolderness</a>)
+<a href="http://metropolis.business-geografic.com/osmb/"><img style="width:150px;height:75px;float:left;margin-right:10px;border:1px solid #cccccc;" src="<?=ROOT?>/assets/screenshots/Paris.jpg"></a>
+<b><a href="http://metropolis.business-geografic.com/osmb/">OSM Buildings Experiment</a></b><br>
+Paris, France<br>
+by Fabien Nicollet (<a href="https://twitter.com/fnicollet">@fnicollet</a>)
 </p>
 
 <?php pageFooter()?>
