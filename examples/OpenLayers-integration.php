@@ -1,25 +1,20 @@
 <?php
 $root = "..";
 require_once("$root/_base.php");
-
-pageHeader("Examples - OpenLayers integration");
 ?>
 
-<link rel="stylesheet" href="<?=ROOT?>/assets/default.css">
-<link rel="stylesheet" href="<?=ROOT?>/js/highlight/github.css">
-<script src="<?=ROOT?>/js/Fly.js"></script>
-<script src="<?=ROOT?>/js/highlight/highlight.pack.js"></script>
-<script src="<?=ROOT?>/js/Example.js"></script>
+<?pageHeader("Examples")?>
+
 <script src="js/OpenLayers-2.12/OpenLayers.js"></script>
-<script src="<?=ROOT?>/js/OpenLayers.Layer.Buildings.js"></script>
+<link rel="stylesheet" href="<?=ROOT?>/js/highlight-7.3/styles/github.css">
+<script src="<?=ROOT?>/js/OSMBuildings-OpenLayers.js"></script>
+<script src="<?=ROOT?>/js/highlight-7.3/highlight.pack.js"></script>
 
-<div id="map"></div>
+<h1>OpenLayers integration</h1>
 
-<p>Integrating with OpenLayers layer switch.</p>
+<p>Adding OSM Buildings to OpenLayers as an extra layer. Also using layer switch and dynamic attribution.</p>
 
-<pre id="code" class="code"></pre>
-
-<script id="src">
+<code>
 var map = new OpenLayers.Map('map');
 map.addControl(new OpenLayers.Control.LayerSwitcher());
 
@@ -37,13 +32,30 @@ map.setCenter(
 var osmb = new OpenLayers.Layer.Buildings();
 map.addLayer(osmb);
 osmb.load();
-</script>
+</code>
 
 <script>
-Fly.on('ready', function () {
-    var src = Fly.wrap('#src');
-    new Example('#code', src.innerText);
-});
+var map = new OpenLayers.Map('map');
+map.addControl(new OpenLayers.Control.LayerSwitcher());
+
+var osm = new OpenLayers.Layer.OSM();
+map.addLayer(osm);
+
+map.setCenter(
+    new OpenLayers.LonLat(13.33522, 52.50440)
+        .transform(
+            new OpenLayers.Projection('EPSG:4326'),
+            map.getProjectionObject()
+        ),
+    17
+);
+var osmb = new OpenLayers.Layer.Buildings();
+map.addLayer(osmb);
+osmb.load();
+
+
+var code = document.getElementsByTagName('CODE')[0];
+code.innerText = hljs.highlightBlock(code.innerText);
 </script>
 
-<?php pageFooter()?>
+<?pageFooter()?>

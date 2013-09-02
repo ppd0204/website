@@ -2,7 +2,7 @@
 $root = "..";
 require_once("$root/_base.php");
 
-pageHeader("Examples - Styling");
+pageHeader("Styling");
 ?>
 
 <link rel="stylesheet" href="<?=ROOT?>/assets/default.css">
@@ -65,4 +65,4 @@ Fly.on('ready', function () {
 });
 </script>
 
-<?php pageFooter()?>
+<?pageFooter()?>

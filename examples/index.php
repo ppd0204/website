@@ -1,8 +1,11 @@
 <?php
 $root = "..";
 require_once("$root/_base.php");
-pageHeader("Examples");
 ?>
+
+<?pageHeader("Examples")?>
+
+<h1>Examples</h1>
 
 <ul>
 <li><a href="Leaflet-integration.php">Leaflet integration</a> - Show how it works with layer control and attribution</li>
@@ -63,4 +66,4 @@ Paris, France<br>
 by Fabien Nicollet (<a href="https://twitter.com/fnicollet">@fnicollet</a>)
 </p>
 
-<?php pageFooter()?>
+<?pageFooter()?>

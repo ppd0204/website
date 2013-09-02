@@ -1,39 +1,27 @@
 <?php
 $root = "..";
 require_once("$root/_base.php");
-
-pageHeader("Examples - Leaflet integration");
 ?>
 
-<link rel="stylesheet" href="<?=ROOT?>/assets/default.css">
-<link rel="stylesheet" href="<?=ROOT?>/js/highlight/github.css">
-<script src="<?=ROOT?>/js/Fly.js"></script>
-<script src="<?=ROOT?>/js/highlight/highlight.pack.js"></script>
-<script src="<?=ROOT?>/js/Example.js"></script>
+<?pageHeader("Examples")?>
 
-<div id="map"></div>
+<link rel="stylesheet" href="<?=ROOT?>/js/highlight-7.3/styles/github.css">
+<script src="<?=ROOT?>/js/highlight-7.3/highlight.pack.js"></script>
 
-<p>Integrating with Leaflet layer switch. Also using dynamic attribution.</p>
+<h1>Leaflet integration</h1>
 
-<pre id="code" class="code"></pre>
+<p>Adding OSM Buildings to Leaflet as an extra layer. Also using layer switch and dynamic attribution.</p>
 
-<script id="src">
+<code>
 var map = new L.Map('map').setView([52.50440, 13.33522], 17);
-
-new L.TileLayer(
-    'http://{s}.tiles.mapbox.com/v3/osmbuildings.map-c8zdox7m/{z}/{x}/{y}.png',
-    { attribution: 'Map tiles &copy; <a href="http://mapbox.com">MapBox</a>', maxZoom: 17 }
-).addTo(map);
-
-var osmb = new L.BuildingsLayer().addTo(map).load();
-L.control.layers({}, { Buildings: osmb }).addTo(map);
-</script>
+var osmb = new OSMBuildings(map).load();
+L.control.layers({}, { Buildings:osmb }).addTo(map);
+</code>
 
 <script>
-Fly.on('ready', function () {
-    var src = Fly.wrap('#src');
-    new Example('#code', src.innerText);
-});
+// L.control.layers({}, { Buildings:osmb }).addTo(map);
+var code = document.getElementsByTagName('CODE')[0];
+code.innerText = hljs.highlightBlock(code.innerText);
 </script>
 
-<?php pageFooter()?>
+<?pageFooter()?>
