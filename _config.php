@@ -1,25 +1,11 @@
 <?php
 
-define("OSMB_SIZE_MINIFIED", 13.1);
-define("OSMB_SIZE_GZIPPED",  5.7);
-define("OSMB_VERSION_LATEST", "0.1.8a");
-define("LEAFLET_VERSION_LATEST", "0.5.1");
-
-define("SITE_TITLE", "OSM Buildings");
-define("SITE_DESCRIPTION", SITE_TITLE." - A JavaScript library for visualizing 3D building geometry on interactive maps");
-define("SITE_URL", "http://osmbuildings.org/");
-define("SITE_SHORT_URL", "http://bld.gs/");
-
-define("GITHUB_URL", "https://github.com/kekscom/osmbuildings/");
-
-//*** NEW CONFIG STARTS HERE **************************************************
-
 $config = array(
     "osmb" => array(
-        "size_minified" => 13.1,
-        "size_gzipped" =>  5.7,
+        "size_minified" => 22.5,
+        "size_gzipped" =>  7.3,
         "version" => "0.1.8a",
-        "leaflet_version" => "0.5.1"
+        "leaflet_version" => "0.6.4"
     ),
     "site" => array(
         "title" => "OSM Buildings",

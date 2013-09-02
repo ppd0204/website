@@ -1,15 +1,15 @@
 <?php
 $root = "..";
-require_once("$root/base.php");
+require_once("$root/_base.php");
 
 pageHeader("Examples - Leaflet integration");
 ?>
 
-<link rel="stylesheet" href="<?php echo ROOT?>/assets/default.css">
-<link rel="stylesheet" href="<?php echo ROOT?>/js/highlight/github.css">
-<script src="<?php echo ROOT?>/js/Fly.js"></script>
-<script src="<?php echo ROOT?>/js/highlight/highlight.pack.js"></script>
-<script src="<?php echo ROOT?>/js/Example.js"></script>
+<link rel="stylesheet" href="<?=ROOT?>/assets/default.css">
+<link rel="stylesheet" href="<?=ROOT?>/js/highlight/github.css">
+<script src="<?=ROOT?>/js/Fly.js"></script>
+<script src="<?=ROOT?>/js/highlight/highlight.pack.js"></script>
+<script src="<?=ROOT?>/js/Example.js"></script>
 
 <div id="map"></div>
 

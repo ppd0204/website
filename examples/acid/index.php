@@ -7,9 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<link rel="icon" type="image/png" href="../../favicon.png">
 	<link rel="stylesheet" href="../../assets/fullscreen.css">
-    <link rel="stylesheet" href="../../js/leaflet-0.5.1/leaflet.css">
+    <link rel="stylesheet" href="../../js/-leaflet-0.5.1/leaflet.css">
     <script src="../../js/Fly.js"></script>
-    <script src="../../js/leaflet-0.5.1/leaflet.js"></script>
+    <script src="../../js/-leaflet-0.5.1/leaflet.js"></script>
     <script src="L.BuildingsLayer-acid.js"></script>
     <script src="../../js/scripts.js"></script>
 </head>

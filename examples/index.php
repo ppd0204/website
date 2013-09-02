@@ -1,7 +1,6 @@
 <?php
 $root = "..";
-require_once("$root/base.php");
-
+require_once("$root/_base.php");
 pageHeader("Examples");
 ?>
 
@@ -26,15 +25,20 @@ pageHeader("Examples");
 
 <h2>Projects using OSM Buildings</h2>
 
+Boston Greenery
+http://mapmeld.github.io/boston-greenery/?faster=true
+
+
+
 <p style="display:block;height:75px;vertical-align:top;">
-<a href="http://metropolis.business-geografic.com/osmb/"><img style="width:150px;height:75px;float:left;margin-right:10px;border:1px solid #cccccc;" src="<?php echo ROOT?>/assets/images/screenshots/Paris.jpg"></a>
+<a href="http://metropolis.business-geografic.com/osmb/"><img style="width:150px;height:75px;float:left;margin-right:10px;border:1px solid #cccccc;" src="<?=ROOT?>/assets/images/screenshots/Paris.jpg"></a>
 <b><a href="http://metropolis.business-geografic.com/osmb/">OSM Buildings Experiment</a></b><br>
 Paris, France<br>
 by Fabien Nicollet (<a href="https://twitter.com/fnicollet">@fnicollet</a>)
 </p>
 
 <p style="display:block;height:75px;vertical-align:top;">
-<a href="http://gmaps-utility-gis.googlecode.com/svn/trunk/agsjs/examples/extrudedlayer.html"><img style="width:150px;height:75px;float:left;margin-right:10px;border:1px solid #cccccc;" src="<?php echo ROOT?>/assets/images/screenshots/Charlotte.jpg"></a>
+<a href="http://gmaps-utility-gis.googlecode.com/svn/trunk/agsjs/examples/extrudedlayer.html"><img style="width:150px;height:75px;float:left;margin-right:10px;border:1px solid #cccccc;" src="<?=ROOT?>/assets/images/screenshots/Charlotte.jpg"></a>
 <b><a href="http://gmaps-utility-gis.googlecode.com/svn/trunk/agsjs/examples/extrudedlayer.html">ArcGIS Maps API Test</a></b><br>
 Charlotte, U.S.<br>
 by Nianwei Liu<br>
@@ -42,14 +46,14 @@ by Nianwei Liu<br>
 </p>
 
 <p style="display:block;height:75px;vertical-align:top;">
-<a href="http://osmbuildings.ru/"><img style="width:150px;height:75px;float:left;margin-right:10px;border:1px solid #cccccc;" src="<?php echo ROOT?>/assets/images/screenshots/Moscow.jpg"></a>
+<a href="http://osmbuildings.ru/"><img style="width:150px;height:75px;float:left;margin-right:10px;border:1px solid #cccccc;" src="<?=ROOT?>/assets/images/screenshots/Moscow.jpg"></a>
 <b><a href="http://osmbuildings.ru/">osmbuildings.ru</a></b><br>
 Moscow, Russia<br>
 by Sergey Leschina (<a href="https://twitter.com/putnik">@putnik</a>)
 </p>
 
 <p style="display:block;height:75px;vertical-align:top;">
-<a href="http://tomholderness.wordpress.com/2012/12/12/3DLondon/"><img style="width:150px;height:75px;float:left;margin-right:10px;border:1px solid #cccccc;" src="<?php echo ROOT?>/assets/images/screenshots/London.jpg"></a>
+<a href="http://tomholderness.wordpress.com/2012/12/12/3DLondon/"><img style="width:150px;height:75px;float:left;margin-right:10px;border:1px solid #cccccc;" src="<?=ROOT?>/assets/images/screenshots/London.jpg"></a>
 <b><a href="http://tomholderness.wordpress.com/2012/12/12/3DLondon/">3D London</a></b><br>
 London, UK<br>
 by Tom Holderness (<a href="https://twitter.com/iHolderness ">@iHolderness</a>)

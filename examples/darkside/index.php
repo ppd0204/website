@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<link rel="icon" type="image/png" href="../../favicon.png">
     <link rel="stylesheet" href="../../assets/fullscreen.css">
-    <link rel="stylesheet" href="../../js/leaflet-0.5.1/leaflet.css">
+    <link rel="stylesheet" href="../../js/-leaflet-0.5.1/leaflet.css">
     <style>
     .datetime {
         position: relative;
@@ -42,7 +42,7 @@
     }
     </style>
     <script src="../../js/Fly.js"></script>
-    <script src="../../js/leaflet-0.5.1/leaflet.js"></script>
+    <script src="../../js/-leaflet-0.5.1/leaflet.js"></script>
     <script src="../../js/L.BuildingsLayer.js"></script>
     <script src="../../js/scripts.js"></script>
 </head>
