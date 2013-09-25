@@ -1,18 +1,27 @@
-var Navigation = function(el) {
-  this.el = el;
-  document.getElementById('options').addEventListener('mouseup', this.toggleMenu.bind(this));
-};
+var Navigation = (function() {
+  'use strict';
 
-var proto = Navigation.prototype;
+  var MIN_WIDTH = 850;
 
-proto.toggleMenu = function() {
-  var thisElStyle = this.el.style
-  thisElStyle.display = thisElStyle.style.display === 'inline' ? '' : 'inline';
-};
+  var _el;
 
-proto.hideMenu = function() {
-  var thisElStyle = this.el.style
-  if (innerWidth <= 850 && thisElStyle.display === 'inline') {
-    thisElStyle.display = '';
+  function _toggleMenu() {
+    _el.style.display = _el.style.style.display === 'inline' ? '' : 'inline';
   }
-};
+
+  document.addEventListener('DOMContentLoaded', function() {
+    _el = document.getElementById('navigation');
+    document.getElementById('options').addEventListener('mouseup', _toggleMenu);
+  });
+
+  var me = {};
+
+  me.hideMenu = function() {
+    if (window.innerWidth <= MIN_WIDTH && _el.style.display === 'inline') {
+      _el.style.display = '';
+    }
+  }
+
+  return me;
+
+}());

@@ -1,25 +1,29 @@
 var State = (function() {
   'use strict';
 
-  function isStorable(n) {
+  var REPEAT_TIMEOUT = 500;
+
+  var _timer;
+
+  function _isStorable(n) {
     return typeof n !== 'object' && typeof n !== 'function' && n !== undefined && n !== null && n !== '';
   }
 
-  function setUrlParams(data) {
+  function _setUrlParams(data) {
     if (!history.replaceState) {
       return;
     }
     var k, v, params = [];
     for (k in data) {
       v = data[k];
-      if (data.hasOwnProperty(k) && isStorable(v)) {
+      if (data.hasOwnProperty(k) && _isStorable(v)) {
         params.push(encodeURIComponent(k) + '=' + encodeURIComponent(v));
       }
     }
     history.replaceState(data, '', '?'+ params.join('&'));
   }
 
-  function getUrlParams(data) {
+  function _getUrlParams(data) {
     var params;
     data = data || {};
     if (!(params = location.search)) {
@@ -33,20 +37,20 @@ var State = (function() {
     return data;
   }
 
-  function setLocalStorage(data) {
+  function _setLocalStorage(data) {
     var k, v;
     if (!localStorage.setItem) {
       return;
     }
     for (k in data) {
       v = data[k];
-      if (data.hasOwnProperty(k) && isStorable(v)) {
+      if (data.hasOwnProperty(k) && _isStorable(v)) {
         localStorage.setItem(k, v);
       }
     }
   }
 
-  function getLocalStorage(data) {
+  function _getLocalStorage(data) {
     var k;
     data = data || {};
     if (!localStorage.getItem) {
@@ -61,14 +65,17 @@ var State = (function() {
   var me = {};
 
   me.save = function(data) {
-    setLocalStorage(data);
-    setUrlParams(data);
+    clearTimeout(_timer);
+    _timer = setTimeout(function() {
+      _setLocalStorage(data);
+      _setUrlParams(data);
+    }, REPEAT_TIMEOUT);
   };
 
   me.load = function() {
     var data = {};
-    data = getLocalStorage(data);
-    data = getUrlParams(data);
+    data = _getLocalStorage(data);
+    data = _getUrlParams(data);
     return data;
   };
 

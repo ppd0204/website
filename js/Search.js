@@ -1,42 +1,49 @@
-var Search = function(el) {
+var Search = (function() {
+  'use strict';
 
-  var url = 'http://ws.geonames.org/searchJSON?q={query}&maxRows={limit}&lang={language}&username={username}';
+  var SEARCH_URL = 'http://ws.geonames.org/searchJSON?q={query}&maxRows=1&lang='+ navigator.language +'&username=osmbuildings';
 
-  function onKeyDown(e) {
-    var value = el.value;
+  var _el;
+
+  function _onKeyDown(e) {
+    var value = _el.value;
     if (e.keyCode !== 13 || !value) {
       return;
     }
 
-    el.blur(); // for iOS in order to close the keyboard
+    _el.blur(); // for iOS in order to close the keyboard
     e.preventDefault();
 
     if (value.indexOf('http') === 0) {
-      customUrl = value;
-      osmb.loadData(customUrl);
-      map.saveState();
+      me.onUrlEntered(value)
       return;
     }
 
-    xhr(url, {
-      query: value,
-      limit: 1,
-      language: navigator.language,
-      username: 'osmbuildings'
-    }, onResults);
+    xhr(SEARCH_URL, { query:value }, _onResponse);
 	}
 
-  function onResults(res) {
+  function _onResponse(res) {
     var item = res.geonames[0];
     if (!item) {
-      el.style.backgroundColor = '#ffcccc';
+      _el.style.backgroundColor = '#ffcccc';
     } else {
-      el.style.backgroundColor = '#ffffff';
-//      map.setView([item.lat, item.lng], 15, false);
+      _el.style.backgroundColor = '#ffffff';
+      me.onResult(item);
     }
 	}
 
-  el.placeholder = 'Search or URL...';
-  el.addEventListener('keydown', onKeyDown, null);
-  el.addEventListener('focus', nav.hideMenu);
-};
+  document.addEventListener('DOMContentLoaded', function() {
+    _el = document.getElementById('search');
+    _el.placeholder = 'Search or URL...';
+    _el.addEventListener('keydown', _onKeyDown, null);
+    _el.addEventListener('focus', me.onInteraction);
+  });
+
+  var me = {};
+
+  me.onResult = function() {};
+  me.onInteraction = function() {};
+
+  return me;
+
+}());

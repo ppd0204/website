@@ -14,12 +14,28 @@
 <script src="<?=ROOT?>/js/leaflet-<?=$config["osmb"]["leaflet_version"]?>/leaflet.js"></script>
 <script src="<?=ROOT?>/combine.php?js=<?=$jsFiles?>"></script>
 <script>
-var nav, map, search;
-
+var osmb;
 document.addEventListener('DOMContentLoaded', function() {
-  nav    = new Navigation(document.getElementById('navigation'));
-  map    = new Map.Leaflet('map');
-  search = new Search(document.getElementById('search'));
+  osmb = Map.setType('Leaflet', 'map');
+
+  Map.onInteraction = function() {
+    Navigation.hideMenu();
+  };
+
+  Search.onResult = function(item) {
+    Map.setView([item.lat, item.lng], 15, false);
+	};
+
+  Search.onInteraction = function() {
+    Navigation.hideMenu();
+  };
+
+  Search.onUrlEntered = function(url) {
+//    customUrl = url;
+//    osmb.loadData(customUrl);
+//    Map.saveState();
+  };
+
 });
 </script>
 </head>
