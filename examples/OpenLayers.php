@@ -9,7 +9,7 @@ require_once("$root/_base.php");
 <script src="<?=ROOT?>/js/highlight-7.3/highlight.pack.js"></script>
 <script src="<?=ROOT?>/js/OpenLayers-2.12/OpenLayers.js"></script>
 <script src="<?=ROOT?>/js/OSMBuildings-OpenLayers.js"></script>
-<script>mapType = 'OpenLayers'</script>
+<script>mapOptions.type = 'OpenLayers'</script>
 
 <h1>OpenLayers integration</h1>
 

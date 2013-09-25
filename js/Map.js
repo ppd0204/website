@@ -99,14 +99,19 @@ var Map = (function() {
 
   var me = {};
 
-  me.setType = function(engineType) {
-    switch (engineType) {
+  me.init = function(options) {
+    switch (options.type) {
       case 'Leaflet':    _engine = _initLeaflet();    break;
       case 'OpenLayers': _engine = _initOpenLayers(); break;
     }
 
     window.map = _engine;
-    window.osmb = new OSMBuildings(_engine).loadData();
+    window.osmb = new OSMBuildings(_engine);
+
+    if (options.loadData) {
+      window.osmb.loadData();
+    }
+
     _restoreState();
   };
 

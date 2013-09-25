@@ -14,9 +14,13 @@
 <script src="<?=ROOT?>/js/leaflet-<?=$config["osmb"]["leaflet_version"]?>/leaflet.js"></script>
 <script src="<?=ROOT?>/combine.php?js=<?=$jsFiles?>"></script>
 <script>
-var mapType = 'Leaflet';
+var mapOptions = {
+  type: 'Leaflet',
+  loadData: true
+};
+
 document.addEventListener('DOMContentLoaded', function() {
-  Map.setType(mapType);
+  Map.init(mapOptions);
 
   Map.onInteraction = function() {
     Navigation.hideMenu();

@@ -2,7 +2,7 @@
 $root = "..";
 require_once("$root/_base.php");
 
-pageHeader("Styles");
+pageHeader("Examples");
 ?>
 
 <link rel="stylesheet" href="<?=ROOT?>/js/highlight-7.3/styles/github-code.css">
