@@ -56,6 +56,10 @@ var Map = (function() {
     });
   };
 
+  me.setState = function(state) {
+    _engine.setView([state.lat, state.lon], state.zoom, false);
+  };
+
   me.onInteraction = function() {};
 
   return me;

@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
   };
 
   Search.onResult = function(item) {
-    Map.setView([item.lat, item.lng], 15, false);
+    Map.setState({ lat:item.lat, lon:item.lng, zoom:15 });
 	};
 
   Search.onInteraction = function() {
