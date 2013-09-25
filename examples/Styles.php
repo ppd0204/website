@@ -8,6 +8,8 @@ pageHeader("Styles");
 <link rel="stylesheet" href="<?=ROOT?>/js/highlight-7.3/styles/github-code.css">
 <script src="<?=ROOT?>/js/highlight-7.3/highlight.pack.js"></script>
 
+<h1>Styles</h1>
+
 <p>Change building styles and check the source code how setStyle() got affected.</p>
 
 <p>

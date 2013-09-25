@@ -11,6 +11,8 @@ pageHeader("Drawing");
 <link rel="stylesheet" href="js/leaflet.draw/leaflet.draw.css">
 <script src="js/leaflet.draw/leaflet.draw.js"></script>
 
+<h1>Drawing</h1>
+
 <p>Add a bit of 3D to GeoJSON! Select a color below and start drawing a Polygon in the map.<br>
     Once you're done, it gets extruded.</p>
 

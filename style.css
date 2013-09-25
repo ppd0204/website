@@ -157,6 +157,10 @@ code {
   cursor: pointer;
 }
 
+textarea {
+  width: 680px;
+  height: 300px;
+}
 
 .leaflet-container .leaflet-control-attribution {
   background-color: transparent;
