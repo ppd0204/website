@@ -14,16 +14,16 @@
 <script src="<?=ROOT?>/js/leaflet-<?=$config["osmb"]["leaflet_version"]?>/leaflet.js"></script>
 <script src="<?=ROOT?>/combine.php?js=<?=$jsFiles?>"></script>
 <script>
-var osmb;
+var mapType = 'Leaflet';
 document.addEventListener('DOMContentLoaded', function() {
-  osmb = Map.setType('Leaflet', 'map');
+  Map.setType(mapType);
 
   Map.onInteraction = function() {
     Navigation.hideMenu();
   };
 
   Search.onResult = function(item) {
-    Map.setState({ lat:item.lat, lon:item.lng, zoom:15 });
+    Map.setState({ lat:item.lat, lon:item.lng, zoom:16 });
 	};
 
   Search.onInteraction = function() {

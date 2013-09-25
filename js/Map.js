@@ -1,65 +1,117 @@
 var Map = (function() {
+  'use strict';
 
   var DEFAULT_LAT = 52.52111,
     DEFAULT_LON = 13.40988,
-    DEFAULT_ZOOM = 17,
+    DEFAULT_ZOOM = 16,
     MAX_ZOOM = 18;
 
   var _engine;
 
   function _restoreState() {
     var state = State.load();
-    var position = [DEFAULT_LAT, DEFAULT_LON];
-    if (state.lat !== undefined && state.lon !== undefined) {
-      position = [parseFloat(state.lat), parseFloat(state.lon)];
-    }
-    var zoom = DEFAULT_ZOOM;
-    if (state.zoom) {
-      zoom = Math.max(Math.min(parseInt(state.zoom, 10), MAX_ZOOM), 0);
-    }
 
-    _engine.setView(position, zoom);
+    state.lat = state.lat !== undefined ? parseFloat(state.lat) : DEFAULT_LAT;
+    state.lon = state.lon !== undefined ? parseFloat(state.lon) : DEFAULT_LON;
+    state.zoom = state.zoom ? Math.max(Math.min(parseInt(state.zoom, 10), MAX_ZOOM), 0) : DEFAULT_ZOOM;
+
+    me.setState(state);
 
 //  if (customUrl = state.url) {
 //    osmb.loadData(customUrl);
 //  }
   }
 
-  var me = {};
-
-  me.setType = function(engineType, domNodeId) {
-    // Leaflet
-    _engine = new L.Map(domNodeId, { zoomControl:false });
+  function _initLeaflet() {
+    var engine = new L.Map('map', { zoomControl:false });
 
     new L.TileLayer('http://{s}.tiles.mapbox.com/v3/osmbuildings.map-c8zdox7m/{z}/{x}/{y}.png', {
       attribution:'Map tiles &copy; <a href="http://mapbox.com">MapBox</a>',
       maxZoom:MAX_ZOOM
-    }).addTo(_engine);
+    }).addTo(engine);
 
-    _engine.on('moveend zoomend', this.saveState, this);
-    _engine.on('click movestart', this.onInteraction, this);
+    me.saveState = function() {
+      var center = engine.getCenter();
+      State.save({
+        lat:center.lat.toFixed(5),
+        lon:center.lng.toFixed(5),
+        zoom:engine.getZoom() //,
+  //    url:customUrl
+      });
+    };
 
-     var osmb = new OSMBuildings(_engine).loadData();
+    me.setState = function(state) {
+      engine.setView([state.lat, state.lon], state.zoom, false);
+    };
 
-    _restoreState();
+    engine.on('moveend zoomend', me.saveState,     me);
+    engine.on('click movestart', me.onInteraction, me);
 
-    return osmb;
-  };
+    return engine;
+  }
 
-  me.saveState = function() {
-    var center = _engine.getCenter();
-    State.save({
-      lat:center.lat.toFixed(5),
-      lon:center.lng.toFixed(5),
-      zoom:_engine.getZoom() //,
-//    url:customUrl
+  function _initOpenLayers() {
+    var engine = new OpenLayers.Map('map', {
+      controls: [
+        new OpenLayers.Control.Navigation(),
+      // new OpenLayers.Control.PanZoomBar(),
+      // new OpenLayers.Control.MousePosition(),
+        new OpenLayers.Control.LayerSwitcher(),
+        new OpenLayers.Control.Attribution()
+      ]
     });
+
+    engine.addControl(new OpenLayers.Control.LayerSwitcher());
+    engine.addLayer(new OpenLayers.Layer.OSM());
+
+    me.saveState = function() {
+      var center = engine.getCenter().transform(
+        engine.getProjectionObject(),
+        new OpenLayers.Projection('EPSG:4326')
+      );
+
+      State.save({
+        lat:center.lat.toFixed(5),
+        lon:center.lon.toFixed(5),
+        zoom:engine.getZoom() //,
+  //    url:customUrl
+      });
+    };
+
+    me.setState = function(state) {
+      engine.setCenter(
+        new OpenLayers.LonLat(state.lon, state.lat).transform(
+          new OpenLayers.Projection('EPSG:4326'),
+          engine.getProjectionObject()
+        ), state.zoom
+      );
+    };
+
+    engine.events.register('moveend',   me, me.saveState);
+    engine.events.register('zoomend',   me, me.saveState);
+    engine.events.register('click',     me, me.onInteraction);
+    engine.events.register('movestart', me, me.onInteraction);
+
+    me.setState({ lat:DEFAULT_LAT, lon:DEFAULT_LON, zoom:DEFAULT_ZOOM })
+
+    return engine;
+  }
+
+  var me = {};
+
+  me.setType = function(engineType) {
+    switch (engineType) {
+      case 'Leaflet':    _engine = _initLeaflet();    break;
+      case 'OpenLayers': _engine = _initOpenLayers(); break;
+    }
+
+    window.map = _engine;
+    window.osmb = new OSMBuildings(_engine).loadData();
+    _restoreState();
   };
 
-  me.setState = function(state) {
-    _engine.setView([state.lat, state.lon], state.zoom, false);
-  };
-
+  me.saveState = function() {};
+  me.setState = function() {};
   me.onInteraction = function() {};
 
   return me;

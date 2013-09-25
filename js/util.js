@@ -1,7 +1,5 @@
 function xhr(_url, param, callback) {
-    var url = _url.replace(/\{ *([\w_]+) *\}/g, function(tag, key) {
-        return param[key] || tag;
-    });
+    var url = setTags(_url, param);
 
     var req = 'XDomainRequest' in window ? new XDomainRequest() : new XMLHttpRequest();
 
@@ -57,6 +55,8 @@ function xhr(_url, param, callback) {
     return req;
 }
 
-function trim(str) {
-  return str.replace(/^\s+|\s+$/g, '');
+function setTags(str, data) {
+  return str.replace(/\{ *([\w_]+) *\}/g, function(tag, key) {
+    return data[key] || tag;
+  });
 }

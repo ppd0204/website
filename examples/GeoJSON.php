@@ -5,24 +5,17 @@ require_once("$root/_base.php");
 pageHeader("GeoJSON");
 ?>
 
-<link rel="stylesheet" href="<?=ROOT?>/assets/default.css">
-<link rel="stylesheet" href="<?=ROOT?>/js/highlight/github.css">
-<script src="<?=ROOT?>/js/Fly.js"></script>
-<script src="<?=ROOT?>/js/highlight/highlight.pack.js"></script>
-<script src="<?=ROOT?>/js/Example.js"></script>
+<link rel="stylesheet" href="<?=ROOT?>/js/highlight-7.3/styles/github-code.css">
+<script src="<?=ROOT?>/js/highlight-7.3/highlight.pack.js"></script>
 
-<div id="map"></div>
-
-<pre id="code" class="code"></pre>
+<code><?=htmlentities("<script src=\"OSMBuildings-Leaflet.js\"></script>
+<script>
+var map = new L.Map('map').setView([52.50440, 13.33522], 17);
+var osmb = new OSMBuildings(map).loadData();
+</script>
+")?></code>
 
 <script id="src">
-var map = new L.Map('map').setView([52.49480, 13.42857], 17);
-
-new L.TileLayer(
-    'http://{s}.tiles.mapbox.com/v3/osmbuildings.map-c8zdox7m/{z}/{x}/{y}.png',
-    { attribution: 'Map tiles &copy; <a href="http://mapbox.com">MapBox</a>', maxZoom: 17 }
-).addTo(map);
-
 var geoJSONData = {
     "type": "FeatureCollection",
     "features": [{
@@ -134,10 +127,11 @@ var geoJSONData = {
 new L.BuildingsLayer().addTo(map).geoJSON(geoJSONData);
 </script>
 
+
+
 <script>
-Fly.on('ready', function () {
-    var src = Fly.wrap('#src');
-    new Example('#code', src.innerText);
+document.addEventListener('DOMContentLoaded', function() {
+  hljs.highlightBlock(document.getElementsByTagName('CODE')[0]);
 });
 </script>
 

@@ -12,13 +12,13 @@ require_once("$root/_base.php");
 
 <p>Adding OSM Buildings to Leaflet as an extra layer. Also using layer switch and dynamic attribution.</p>
 
-<code>&lt;script src="OSMBuildings-Leaflet.js"&gt;&lt;/script&gt;
-&lt;script&gt;
+<code><?=htmlentities("<script src=\"OSMBuildings-Leaflet.js\"></script>
+<script>
 var map = new L.Map('map').setView([52.50440, 13.33522], 17);
 var osmb = new OSMBuildings(map).loadData();
-L.control.layers({}, { Buildings:osmb }).addTo(map);
-&lt;/script&gt;
-</code>
+L.control.layers({}, { Buildings:osmb }).addTo(map); // add to layer switcher (optional)
+</script>
+")?></code>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
