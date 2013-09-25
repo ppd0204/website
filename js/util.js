@@ -56,3 +56,7 @@ function xhr(_url, param, callback) {
 
     return req;
 }
+
+function trim(str) {
+  return str.replace(/^\s+|\s+$/g, '');
+}

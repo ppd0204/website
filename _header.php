@@ -9,8 +9,19 @@
 <meta property="keywords" content="<?=$config["site"]["keywords"]?>">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link rel="icon" type="image/png" href="<?=ROOT?>/favicon.png">
+<link rel="stylesheet" href="<?=ROOT?>/js/leaflet-<?=$config["osmb"]["leaflet_version"]?>/leaflet.css">
 <link rel="stylesheet" href="<?=ROOT?>/combine.php?css=<?=$cssFiles?>">
+<script src="<?=ROOT?>/js/leaflet-<?=$config["osmb"]["leaflet_version"]?>/leaflet.js"></script>
 <script src="<?=ROOT?>/combine.php?js=<?=$jsFiles?>"></script>
+<script>
+var nav, map, search;
+
+document.addEventListener('DOMContentLoaded', function() {
+  nav    = new Navigation(document.getElementById('navigation'));
+  map    = new Map.Leaflet('map');
+  search = new Search(document.getElementById('search'));
+});
+</script>
 </head>
 
 <body>
