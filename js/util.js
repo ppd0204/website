@@ -57,7 +57,7 @@ function xhr(_url, param, callback) {
 
 function setTags(str, data) {
   return str.replace(/\{ *([\w_]+) *\}/g, function(tag, key) {
-    return data[key] || tag;
+    return data[key];
   });
 }
 

@@ -17,6 +17,7 @@ function pageHeader($title = NULL, $isFullscreen = FALSE) {
   $jsFiles = implode(",", array(
     "js/OSMBuildings-Leaflet.js",
     "js/util.js",
+    "js/Code.js",
     "js/State.js",
     "js/Search.js",
     "js/Map.js",

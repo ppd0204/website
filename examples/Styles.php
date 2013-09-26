@@ -28,6 +28,7 @@ pageHeader("Examples");
 <label><input type="checkbox" onclick="setStyle(this, 'shadows')" checked>Shadows</label>
 </p>
 
+<legend>Example</legend>
 <code><?=htmlentities("<script src=\"OSMBuildings-Leaflet.js\"></script>
 <script>
 var map = new L.Map('map').setView([52.50440, 13.33522], 17);
@@ -35,8 +36,9 @@ var osmb = new OSMBuildings(map).loadData();
 osmb.setStyle({ {style} });
 </script>
 ")?></code>
+
 <script>
-var wallColor, roofColor, shadows;
+var wallColor, roofColor, shadows = true;
 
 function setStyle(el, type) {
   if (type === 'wallColor') {
@@ -51,26 +53,20 @@ function setStyle(el, type) {
 
   osmb.setStyle({ wallColor:wallColor, roofColor:roofColor, shadows:shadows });
 
-  var attr = [];
+  var style = [];
   if (wallColor) {
-    attr.push('wallColor:\''+ wallColor +'\'');
+    style.push('wallColor:\''+ wallColor +'\'');
   }
   if (roofColor) {
-    attr.push('roofColor:\''+ roofColor +'\'');
+    style.push('roofColor:\''+ roofColor +'\'');
   }
-  attr.push('shadows:'+ (shadows ? 'true' : 'false'));
+  style.push('shadows:'+ (shadows ? 'true' : 'false'));
 
-  codeBlock.innerText = setTags(code, { style:attr.join(', ') });
-  hljs.highlightBlock(codeBlock);
+  Code.update({ style:style.join(', ') });
 }
 
-var codeBlock, code;
 document.addEventListener('DOMContentLoaded', function() {
-  codeBlock = getElement('CODE');
-  code = codeBlock.innerText;
-
-  codeBlock.innerText = setTags(code, { style:'shadows:true' });
-  hljs.highlightBlock(codeBlock);
+  Code.update({ style:'shadows:'+ (shadows ? 'true' : 'false') });
 });
 </script>
 

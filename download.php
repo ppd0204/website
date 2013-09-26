@@ -12,7 +12,7 @@ require_once("$root/_base.php");
     It is currently works with LeafletJS and OpenLayers, so have one of these running in your website.
 
     <p>I assume, <a href="http://leafletjs.com">Leaflet map engine</a> should be already integrated in your html page.<br>
-    Make sure you are running the latest version <?=$config["osmb"]["leaflet_version"]?></p>
+    Make sure you are running at least version <?=$config["osmb"]["leaflet_version"]?></p>
 
     <p>Download <a href="https://github.com/kekscom/osmbuildings/zipball/v<?=$config["osmb"]["version"]?>">OSM Buildings <?=$config["osmb"]["version"]?></a>,
     including sample data, compatible with Leaflet <?=$config["osmb"]["leaflet_version"]?><br>

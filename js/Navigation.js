@@ -6,12 +6,12 @@ var Navigation = (function() {
   var _el;
 
   function _toggleMenu() {
-    _el.style.display = _el.style.style.display === 'inline' ? '' : 'inline';
+    _el.style.display = _el.style.display === 'inline' ? '' : 'inline';
   }
 
   document.addEventListener('DOMContentLoaded', function() {
-    _el = document.getElementById('navigation');
-    document.getElementById('options').addEventListener('mouseup', _toggleMenu);
+    _el = getElement('#navigation');
+    getElement('#options').addEventListener('mouseup', _toggleMenu);
   });
 
   var me = {};

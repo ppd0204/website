@@ -14,66 +14,56 @@ require_once("$root/_base.php");
 
 <h1>Drawing</h1>
 
-<p>Add some 3D to GeoJSON! Select a color below and start drawing a Polygon in the map.<br>
-Once you're done, extrude it by using the height slider</p>
+<p>Draw GeoJSON and add some 3D to it. Use the toolbar above to draw a polygon or a rectangle on the map.<br>
+Enter a height value to change object's extrusion at any time.</p>
 
 <p>
-Height: <input name="height" type="range" min="10" max="500" step="10" value="100">
+Height: <input type="text" value="300" maxlength="3" size="3" onkeyup="setHeight(this)">
 </p>
 
+<legend>Example</legend>
 <code><?=htmlentities("<script src=\"OSMBuildings-Leaflet.js\"></script>
 <script>
 var map = new L.Map('map').setView([52.50440, 13.33522], 17);
 var osmb = new OSMBuildings(map);
+var drawControl = new L.Control.Draw({
+  draw: { polyline:false, circle:false, marker:false }
+});
+map.addControl(drawControl);
+map.on('draw:created', function (e) {
+  var feature = e.layer.toGeoJSON();
+  feature.properties = { color:'#ffcc00', height:{height} };
+  var geoJson = { type:'FeatureCollection', features:[feature] };
+  osmb.setData(geoJson);
+});
 </script>
 ")?></code>
 
 <script>
-//function setHeight(el) {
-//  height = parseInt(el.value) || 50;
-//}
-
-//    .datetime label {
-//        display: block;
-//        width: 100%;
-//        height: 20px;
-//    }
-//    .datetime input {
-//        width: 100%;
-//        height: 30px;
-//        margin-bottom: 10px;
-//        background-color: transparent;
-//    }
-
-
-//    <label for="time">Time: </label>
-//    <input id="time" type="range" min="0" max="95">
-
-var range = getElement('#time');
-var rangeLabel = getElement('*[for=time]');
-
-range.addEventListener('change', function () {
-    h = this.value / timeScale <<0;
-    m = this.value % timeScale * 15;
-    changeDate();
-}, false);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 var color = '#ffcc00',
-  height = 300;
+  height = 300,
+  feature;
+
+function setHeight(el) {
+  height = parseInt(el.value);
+  Code.update({ height:height });
+  setGeoJson();
+}
+
+function setGeoJson() {
+  if (!feature) {
+    return;
+  }
+  feature.properties = {
+    color: color,
+    height: height
+  };
+  var geoJson = {
+    type: 'FeatureCollection',
+    features: [feature]
+  };
+  osmb.setData(geoJson);
+}
 
 document.addEventListener('DOMContentLoaded', function() {
   var drawControl = new L.Control.Draw({
@@ -93,21 +83,13 @@ document.addEventListener('DOMContentLoaded', function() {
   map.addControl(drawControl);
 
   map.on('draw:created', function (e) {
-    var feature = e.layer.toGeoJSON();
-    feature.properties = {
-      color: color,
-      height: height
-    };
-
-    var geoJson = {
-      type: 'FeatureCollection',
-      features: [feature]
-    };
-
-    osmb.setData(geoJson);
+    feature = e.layer.toGeoJSON();
+    setGeoJson();
   });
+});
 
-  hljs.highlightBlock(getElement('CODE'));
+document.addEventListener('DOMContentLoaded', function() {
+  Code.update({ height:height });
 });
 </script>
 

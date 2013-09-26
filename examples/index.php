@@ -8,20 +8,20 @@ require_once("$root/_base.php");
 <h1>Examples</h1>
 
 <ul>
-<li><a href="Leaflet-integration.php">Leaflet integration</a> - Show how it works with layer control and attribution</li>
-<li><a href="OpenLayers-integration.php">OpenLayers integration</a> - Show how it works with layer control and attribution</li>
-<li><a href="darkside/">Building shadows</a> - These shadows are date and time dependent, according to sun position</li>
-<li><a href="Draw.php">Draw</a> - Draw polygons on the map and get them extruded</li>
-<li><a href="Styles.php">Styling</a> - Set colors for walls, roofs and stroke roofs</li>
-<li><a href="GeoJSON-set.php">GeoJSON set</a> - Put custom GeoJSON on the map</li>
+<li><a href="Leaflet.php">Leaflet integration</a> - How it works with layer control and attribution</li>
+<li><a href="OpenLayers.php">OpenLayers integration</a> - How it works with layer control and attribution</li>
+<li><a href="Shadows.php">Building shadows</a> - These shadows are date and time dependent, according to sun position</li>
+<li><a href="GeoJSON.php">GeoJSON</a> - Put custom GeoJSON on the map</li>
+<li><a href="Drawing.php">Drawing</a> - Create polygons on the map and get them extruded</li>
+<li><a href="Styles.php">Styles</a> - Set colors for walls and roofs</li>
 </ul>
 
 
 <h2>Prototypes based on OSM Buildings</h2>
 
 <ul>
-<li><a href="sketch/">Sketch style</a> - Buildings rendered like drawn by hand</li>
-<li><a href="anaglyph3d/">Anaglyph 3D mode</a> - Put your 3D glasses on! It requires more than 3x rendering effort - slow!</li>
+<!-- li><a href="sketch/">Sketch style</a> - Buildings rendered like drawn by hand</li -->
+<!-- li><a href="anaglyph3d/">Anaglyph 3D mode</a> - Put your 3D glasses on! It requires more than 3x rendering effort - slow!</li -->
 <li><a href="indoor/">Indoor Maps</a> - A quick test for turning an SVG floor plan into 3D</li>
 </ul>
 

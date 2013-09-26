@@ -44,8 +44,13 @@ var Map = (function() {
       engine.setView([state.lat, state.lon], state.zoom, false);
     };
 
-    engine.on('moveend zoomend', me.saveState,     me);
-    engine.on('click movestart', me.onInteraction, me);
+    engine.on('moveend zoomend', function() {
+      me.saveState()
+    }, me);
+
+    engine.on('click movestart',function() {
+      me.onInteraction()
+    }, me);
 
     return engine;
   }
@@ -87,10 +92,21 @@ var Map = (function() {
       );
     };
 
-    engine.events.register('moveend',   me, me.saveState);
-    engine.events.register('zoomend',   me, me.saveState);
-    engine.events.register('click',     me, me.onInteraction);
-    engine.events.register('movestart', me, me.onInteraction);
+    engine.events.register('moveend', me, function() {
+      me.saveState()
+    });
+
+    engine.events.register('zoomend', me, function() {
+      me.saveState()
+    });
+
+    engine.events.register('click', me, function() {
+      me.onInteraction()
+    });
+
+    engine.events.register('movestart', me, function() {
+      me.onInteraction()
+    });
 
     me.setState({ lat:DEFAULT_LAT, lon:DEFAULT_LON, zoom:DEFAULT_ZOOM })
 

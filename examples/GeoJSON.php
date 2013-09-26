@@ -121,6 +121,7 @@ Feel free to edit the data or paste your own examples here.</p>
 <button onclick="setGeoJson()">Apply changes</button>
 </p>
 
+<legend>Example</legend>
 <code><?=htmlentities("<script src=\"OSMBuildings-Leaflet.js\"></script>
 <script>
 var map = new L.Map('map').setView([52.50440, 13.33522], 17);
@@ -163,7 +164,6 @@ function setGeoJson() {
 document.addEventListener('DOMContentLoaded', function() {
   geoJsonBlock = getElement('TEXTAREA');
   setGeoJson();
-  hljs.highlightBlock(getElement('CODE'));
 });
 </script>
 

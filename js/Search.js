@@ -33,10 +33,12 @@ var Search = (function() {
 	}
 
   document.addEventListener('DOMContentLoaded', function() {
-    _el = document.getElementById('search');
+    _el = getElement('#search');
     _el.placeholder = 'Search or URL...';
     _el.addEventListener('keydown', _onKeyDown, null);
-    _el.addEventListener('focus', me.onInteraction);
+    _el.addEventListener('focus', function() {
+      me.onInteraction()
+    }, null);
   });
 
   var me = {};

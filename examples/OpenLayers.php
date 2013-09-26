@@ -15,6 +15,7 @@ require_once("$root/_base.php");
 
 <p>Adding OSM Buildings to OpenLayers as an extra layer. Also using layer switch and dynamic attribution.</p>
 
+<legend>Example</legend>
 <code><?=htmlentities("<script src=\"OSMBuildings-OpenLayers.js\"></script>
 <script>
 var map = new OpenLayers.Map('map');
@@ -31,11 +32,5 @@ map.setCenter(
 var osmb = new OSMBuildings-OpenLayers(map).load();
 </script>
 ")?></code>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  hljs.highlightBlock(getElement('CODE'));
-});
-</script>
 
 <?pageFooter()?>
