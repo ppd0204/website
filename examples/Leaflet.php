@@ -23,7 +23,7 @@ L.control.layers({}, { Buildings:osmb }).addTo(map); // add to layer switcher (o
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   L.control.layers({}, { Buildings:osmb }).setPosition('bottomright').addTo(map);
-  hljs.highlightBlock(document.getElementsByTagName('CODE')[0]);
+  hljs.highlightBlock(getElement('CODE'));
 });
 </script>
 

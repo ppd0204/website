@@ -66,7 +66,7 @@ function setStyle(el, type) {
 
 var codeBlock, code;
 document.addEventListener('DOMContentLoaded', function() {
-  codeBlock = document.getElementsByTagName('CODE')[0];
+  codeBlock = getElement('CODE');
   code = codeBlock.innerText;
 
   codeBlock.innerText = setTags(code, { style:'shadows:true' });

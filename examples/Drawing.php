@@ -3,7 +3,7 @@ $root = "..";
 require_once("$root/_base.php");
 ?>
 
-<?pageHeader("Drawing")?>
+<?pageHeader("Examples")?>
 
 <link rel="stylesheet" href="<?=ROOT?>/js/highlight-7.3/styles/github-code.css">
 <script src="<?=ROOT?>/js/highlight-7.3/highlight.pack.js"></script>
@@ -18,8 +18,7 @@ require_once("$root/_base.php");
 Once you're done, extrude it by using the height slider</p>
 
 <p>
-Height:
-<input type="text" value="300" maxlength="3" size="3" onkeyup="setHeight(this)">
+Height: <input name="height" type="range" min="10" max="500" step="10" value="100">
 </p>
 
 <code><?=htmlentities("<script src=\"OSMBuildings-Leaflet.js\"></script>
@@ -30,31 +29,65 @@ var osmb = new OSMBuildings(map);
 ")?></code>
 
 <script>
-function setHeight(el) {
-  height = parseInt(el.value) || 50;
-}
+//function setHeight(el) {
+//  height = parseInt(el.value) || 50;
+//}
 
-var drawControl,
-  color = '#ffcc00',
+//    .datetime label {
+//        display: block;
+//        width: 100%;
+//        height: 20px;
+//    }
+//    .datetime input {
+//        width: 100%;
+//        height: 30px;
+//        margin-bottom: 10px;
+//        background-color: transparent;
+//    }
+
+
+//    <label for="time">Time: </label>
+//    <input id="time" type="range" min="0" max="95">
+
+var range = getElement('#time');
+var rangeLabel = getElement('*[for=time]');
+
+range.addEventListener('change', function () {
+    h = this.value / timeScale <<0;
+    m = this.value % timeScale * 15;
+    changeDate();
+}, false);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var color = '#ffcc00',
   height = 300;
 
 document.addEventListener('DOMContentLoaded', function() {
-  var drawnItems = new L.FeatureGroup();
-  map.addLayer(drawnItems);
-
-  drawControl = new L.Control.Draw({
+  var drawControl = new L.Control.Draw({
     draw: {
+      polyline: false,
       polygon: {
         allowIntersection: false,
         shapeOptions: { color:color }
       },
-      polyline: true,
-      rectangle: true,
-      circle: true,
-      marker: true
-    },
-    edit: {
-      featureGroup: drawnItems
+      rectangle: {
+        shapeOptions: { color:color }
+      },
+      circle: false,
+      marker: false
     }
   });
   map.addControl(drawControl);
@@ -74,9 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
     osmb.setData(geoJson);
   });
 
-//  map.removeControl(drawControl);
-
-  hljs.highlightBlock(document.getElementsByTagName('CODE')[0]);
+  hljs.highlightBlock(getElement('CODE'));
 });
 </script>
 

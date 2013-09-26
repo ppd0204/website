@@ -34,7 +34,7 @@ var osmb = new OSMBuildings-OpenLayers(map).load();
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  hljs.highlightBlock(document.getElementsByTagName('CODE')[0]);
+  hljs.highlightBlock(getElement('CODE'));
 });
 </script>
 

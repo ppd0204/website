@@ -60,3 +60,7 @@ function setTags(str, data) {
     return data[key] || tag;
   });
 }
+
+function getElement(query) {
+  return document.querySelector(query);
+}

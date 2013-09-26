@@ -161,9 +161,9 @@ function setGeoJson() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  geoJsonBlock = document.getElementsByTagName('TEXTAREA')[0];
+  geoJsonBlock = getElement('TEXTAREA');
   setGeoJson();
-  hljs.highlightBlock(document.getElementsByTagName('CODE')[0]);
+  hljs.highlightBlock(getElement('CODE'));
 });
 </script>
 
