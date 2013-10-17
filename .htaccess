@@ -3,13 +3,18 @@ RewriteEngine On
 RewriteCond %{HTTP_HOST} !=osmbuildings.org
 RewriteRule ^ http://osmbuildings.org%{REQUEST_URI} [R=301]
 
-RewriteRule ^documentation.php$ /documentation/ [R=301,L]
-RewriteRule ^documentation/(.*).html$ /documentation/$1.php [R=301,L]
-
-RewriteRule ^touch.*$ /examples/ [R=301,L]
+RewriteRule ^(documentation|touch).*$ /examples/ [R=301,L]
 RewriteRule ^examples/(census|Data-visualization|Fullscreen|GeoJSON-load).*$ /examples/ [R=301,L]
 
 RewriteRule ^examples.php$ /examples/ [R=301,L]
 RewriteRule ^examples/(.*).html$ /examples/$1.php [R=301,L]
 
-RewriteRule ^(acid|anaglyph3d|darkside|indoor|nyc|sketch)/(.*)$ /examples/$1/$2 [R=301,L]
+RewriteRule ^examples/Leaflet-integration.php$ /examples/Leaflet.php [R=301,L]
+RewriteRule ^examples/OpenLayers-integration.php$ /examples/OpenLayers.php [R=301,L]
+RewriteRule ^examples/GeoJSON-set.php$ /examples/GeoJSON.php [R=301,L]
+RewriteRule ^examples/Draw.php$ /examples/Drawing.php [R=301,L]
+
+RewriteRule ^darkside/(.*)$ /examples/Shadows.php [R=301,L]
+RewriteRule ^(indoor)/?(.*)$ /examples/$1/$2 [R=301,L]
+
+RewriteRule ^(acid|anaglyph3d|sketch)/?.*$ /examples/ [R=301,L]
