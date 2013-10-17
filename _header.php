@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
   <ul id="navigation">
   <li><a href="<?=ROOT?>/examples/">Examples</a></li>
   <li><a href="<?=ROOT?>/download.php">Download</a></li>
-  <li><a href="<?=ROOT?>/questions.php">Questions</a></li>
+<?/*  <li><a href="<?=ROOT?>/questions.php">Questions</a></li> */?>
   <li title="Follow @<?=$config["twitter"]["screen_name"]?> on Twitter"><a href="https://twitter.com/intent/follow?original_referer=<?=$config["site"]["url"]?>&screen_name=<?=$config["twitter"]["screen_name"]?>">Follow <img src="<?=ROOT?>/assets/twitter.png"></a></li>
   <li><a href="mailto:<?=$config["site"]["email"]?>">Email</a></li>
   <li title="Donate via PayPal"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RNF2QFZN96JA8">Donate!</a></li>

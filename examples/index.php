@@ -20,8 +20,8 @@ require_once("$root/_base.php");
 <h2>Prototypes based on OSM Buildings</h2>
 
 <ul>
-<!-- li><a href="sketch/">Sketch style</a> - Buildings rendered like drawn by hand</li -->
-<!-- li><a href="anaglyph3d/">Anaglyph 3D mode</a> - Put your 3D glasses on! It requires more than 3x rendering effort - slow!</li -->
+<?/* <li><a href="sketch/">Sketch style</a> - Buildings rendered like drawn by hand</li>  */?>
+<?/* <li><a href="anaglyph3d/">Anaglyph 3D mode</a> - Put your 3D glasses on! It requires more than 3x rendering effort - slow!</li> */?>
 <li><a href="indoor/">Indoor Maps</a> - A quick test for turning an SVG floor plan into 3D</li>
 </ul>
 
@@ -44,13 +44,16 @@ London, UK<br>
 by Tom Holderness (<a href="https://twitter.com/iHolderness ">@iHolderness</a>)
 </p>
 
+<?/*
 <p style="display:block;height:75px;vertical-align:top;">
 <a href="http://osmbuildings.ru/"><img style="width:150px;height:75px;float:left;margin-right:10px;border:1px solid #cccccc;" src="<?=ROOT?>/assets/screenshots/Moscow.jpg"></a>
 <b><a href="http://osmbuildings.ru/">osmbuildings.ru</a></b><br>
 Moscow, Russia<br>
 by Sergey Leschina (<a href="https://twitter.com/putnik">@putnik</a>)
 </p>
+*/?>
 
+<?/*
 <p style="display:block;height:75px;vertical-align:top;">
 <a href="http://gmaps-utility-gis.googlecode.com/svn/trunk/agsjs/examples/extrudedlayer.html"><img style="width:150px;height:75px;float:left;margin-right:10px;border:1px solid #cccccc;" src="<?=ROOT?>/assets/screenshots/Charlotte.jpg"></a>
 <b><a href="http://gmaps-utility-gis.googlecode.com/svn/trunk/agsjs/examples/extrudedlayer.html">ArcGIS Maps API Test</a></b><br>
@@ -58,6 +61,7 @@ Charlotte, U.S.<br>
 by Nianwei Liu<br>
 &nbsp;
 </p>
+*/?>
 
 <p style="display:block;height:75px;vertical-align:top;">
 <a href="http://metropolis.business-geografic.com/osmb/"><img style="width:150px;height:75px;float:left;margin-right:10px;border:1px solid #cccccc;" src="<?=ROOT?>/assets/screenshots/Paris.jpg"></a>

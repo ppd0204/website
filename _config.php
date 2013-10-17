@@ -2,9 +2,9 @@
 
 $config = array(
     "osmb" => array(
-        "size_minified" => 22.5,
-        "size_gzipped" =>  7.3,
-        "version" => "0.1.8a",
+        "size_minified" => 22.0,
+        "size_gzipped" =>  9.3,
+        "version" => "0.1.9a",
         "leaflet_version" => "0.6.4"
     ),
     "site" => array(
