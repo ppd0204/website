@@ -63,11 +63,4 @@ by Nianwei Liu<br>
 </p>
 */?>
 
-<p style="display:block;height:75px;vertical-align:top;">
-<a href="http://metropolis.business-geografic.com/osmb/"><img style="width:150px;height:75px;float:left;margin-right:10px;border:1px solid #cccccc;" src="<?=ROOT?>/assets/screenshots/Paris.jpg"></a>
-<b><a href="http://metropolis.business-geografic.com/osmb/">OSM Buildings Experiment</a></b><br>
-Paris, France<br>
-by Fabien Nicollet (<a href="https://twitter.com/fnicollet">@fnicollet</a>)
-</p>
-
 <?pageFooter()?>
