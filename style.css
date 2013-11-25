@@ -38,9 +38,9 @@ body {
 .logo {
   position: absolute;
   left: 15px;
-  width: 54px;
-  height: 50px;
-  opacity: 0.65;
+  width: 130px;
+  height: 40px;
+  opacity: 0.9;
   z-index: 1000; /* just for IE and for OpenLayers */
 }
 
@@ -49,7 +49,7 @@ body {
 }
 
 .scroll .logo {
-  top: 190px;
+  top: 195px;
 }
 
 .header {
@@ -214,8 +214,8 @@ textarea {
 
 @media screen and (max-width: 500px) {
   .logo {
-    width: 41px;
-    height: 38px;
+    width: 98px;
+    height: 30px;
     left: 10px;
     bottom: 10px;
   }
